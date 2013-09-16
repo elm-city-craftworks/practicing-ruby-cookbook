@@ -8,3 +8,6 @@ version           "1.0.0"
 recipe            "practicing-ruby::default", "Sets up environment for Practicing Ruby Rails app"
 
 supports "ubuntu"
+
+depends "rbenv"
+depends "ruby_build"

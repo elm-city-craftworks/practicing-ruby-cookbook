@@ -1,0 +1,7 @@
+*/*file
+*/*file.lock
+*/bin
+*/bundle
+*/chefignore
+*/spec
+*/vendor

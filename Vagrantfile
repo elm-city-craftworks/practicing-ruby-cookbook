@@ -18,7 +18,7 @@ EOS
 
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe "apt"
-    chef.add_recipe "practicing-ruby::ruby"
+    chef.add_recipe "practicing-ruby"
     chef.json = {}
     chef.log_level = :debug
   end

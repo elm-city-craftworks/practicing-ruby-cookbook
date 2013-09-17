@@ -1,32 +1,25 @@
-#
-# Cookbook Name:: practicing-ruby
-# Recipe:: ruby
-#
-# Copyright (C) 2013 Mathias Lafeldt <mathias.lafeldt@gmail.com>
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
+# Install ruby-build for rbenv_ruby LWRP
+# https://github.com/fnichol/chef-ruby_build#-default
+include_recipe "ruby_build"
 
-include_recipe 'ruby_build'
-include_recipe 'rbenv::system'
+# Install rbenv for system-wide use
+# https://github.com/fnichol/chef-rbenv#-system_install
+include_recipe "rbenv::system_install"
 
-# The rbenv cookbook installs /etc/profile.d/rbenv.sh which sets up the Ruby
-# environment. But that file will only be sourced after the next login,
-# causing the first converge to fail. With this workaround, rbenv will be
-# available immediately.
-ruby_block "Add rbenv to PATH" do
-  block do
-    rbenv_root = node['rbenv']['root_path']
-    ENV['PATH'] = "#{rbenv_root}/shims:#{rbenv_root}/bin:#{ENV['PATH']}"
+# Build and install Ruby version with ruby-build
+# https://github.com/fnichol/chef-rbenv#-rbenv_ruby
+rbenv_ruby node["practicingruby"]["ruby"]["version"]
+
+# Set global version of Ruby to be used in all shells
+# https://github.com/fnichol/chef-rbenv#-rbenv_global
+rbenv_global node["practicingruby"]["ruby"]["version"]
+
+# Install Ruby gems
+# https://github.com/fnichol/chef-rbenv#-rbenv_gem
+node["practicingruby"]["ruby"]["gems"].each do |gem|
+  rbenv_gem gem["name"] do
+    rbenv_version node["practicingruby"]["ruby"]["version"]
+    version       gem["version"] unless gem["version"].nil?
+    action        :install
   end
 end

@@ -1,2 +1,2 @@
 # Install Ruby and gems
-include_recipe "practicing-ruby::ruby"
+include_recipe "practicingruby::ruby"

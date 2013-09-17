@@ -1,7 +1,7 @@
 Practicing Ruby Cookbook
 ========================
 
-Sets up environment for [Practicing Ruby Rails app][practicing-ruby-web].
+Sets up environment for [Practicing Ruby Rails app][practicingruby-web].
 
 Requirements
 ------------
@@ -12,20 +12,23 @@ Requirements
 
 ### Cookbooks:
 
-*No dependencies defined*
+TODO
 
 Attributes
 ----------
 
-*No attributes defined*
+TODO
 
 Recipes
 -------
 
-### practicing-ruby::default
+### practicingruby::default
 
 Sets up environment for Practicing Ruby Rails app
 
+### practicingruby::ruby
+
+Installs Ruby and gems
 
 License and Author
 ------------------
@@ -37,4 +40,4 @@ Copyright:: 2013, Mathias Lafeldt
 License:: Apache 2.0
 
 
-[practicing-ruby-web]: https://github.com/elm-city-craftworks/practicing-ruby-web
+[practicingruby-web]: https://github.com/elm-city-craftworks/practicing-ruby-web

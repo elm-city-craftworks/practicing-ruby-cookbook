@@ -3,7 +3,7 @@
 # Attributes:: default
 #
 
-# Ruby version to install system-wide
+# Ruby version to install
 default["practicingruby"]["ruby"]["version"] = "2.0.0-p247"
 
 # List of Ruby gems to install

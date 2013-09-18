@@ -12,12 +12,16 @@ Requirements
 
 ### Cookbooks:
 
-TODO
+* [rbenv](https://github.com/fnichol/chef-rbenv)
+* [ruby_build](https://github.com/fnichol/chef-ruby_build)
 
 Attributes
 ----------
 
-TODO
+* `node["practicingruby"]["ruby"]["version"]` - Ruby version to install
+* `node["practicingruby"]["ruby"]["gems"]` - List of Ruby gems to install
+
+See `attributes/default.rb` for default values.
 
 Recipes
 -------

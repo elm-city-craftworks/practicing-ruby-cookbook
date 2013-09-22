@@ -54,6 +54,14 @@ In case the VM is already up, you can run the provisioners again with:
 
     $ vagrant provision
 
+To SSH into the running VM:
+
+    $ vagrant ssh
+
+Finally, this will stop and destroy the VM:
+
+    $ vagrant destroy -f
+
 License and Author
 ------------------
 

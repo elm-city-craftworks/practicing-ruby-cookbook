@@ -1,10 +1,11 @@
 # vi: set ft=ruby :
 #
-# This Vagrantfile requires the following Vagrant plugins to be installed via
-# `vagrant plugin install`:
+# This Vagrantfile requires the following Vagrant plugins to be installed:
 #
 # - vagrant-berkshelf
 # - vagrant-omnibus
+#
+# As the used Vagrant box is a VirtualBox image, VirtualBox is needed as well.
 #
 
 Vagrant.configure("2") do |config|

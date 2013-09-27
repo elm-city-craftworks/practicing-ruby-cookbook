@@ -9,9 +9,6 @@
 # Tell Berkshelf to read cookbook dependencies from metadata.rb
 metadata
 
-# Required to update Debian package index
-cookbook "apt"
-
-# These Ruby cookbooks have to be downloaded from GitHub
+# Ruby cookbooks have to be downloaded from GitHub
 cookbook "rbenv",      :github => "fnichol/chef-rbenv"
 cookbook "ruby_build", :github => "fnichol/chef-ruby_build"

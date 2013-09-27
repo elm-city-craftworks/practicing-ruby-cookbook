@@ -33,7 +33,13 @@ Vagrant.configure("2") do |config|
 
     # Pass custom JSON data to cookbooks that will be accessible via "node"
     # variable at runtime
-    chef.json = {}
+    chef.json = {
+      "postgresql" => {
+        "password" => {
+          "postgres" => "practicingruby"
+        }
+      }
+    }
 
     # Be more chatty
     # chef.log_level = :debug

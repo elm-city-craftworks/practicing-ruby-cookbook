@@ -10,5 +10,8 @@ recipe            "practicingruby::ruby", "Installs Ruby and gems"
 
 supports "ubuntu"
 
+depends "apt"
+depends "openssl"
+depends "postgresql"
 depends "rbenv"
 depends "ruby_build"

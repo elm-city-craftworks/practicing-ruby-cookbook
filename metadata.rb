@@ -10,6 +10,7 @@ recipe            "practicingruby::ruby", "Installs Ruby and gems"
 
 supports "ubuntu"
 
+depends "application_ruby"
 depends "apt"
 depends "openssl"
 depends "postgresql"

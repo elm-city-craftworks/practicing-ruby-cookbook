@@ -28,7 +28,6 @@ Vagrant.configure("2") do |config|
   # Configure Chef Solo provisioner
   config.vm.provision :chef_solo do |chef|
     # Add recipes to be executed in given order
-    chef.add_recipe "apt"
     chef.add_recipe "practicingruby"
 
     # Pass custom JSON data to cookbooks that will be accessible via "node"
@@ -42,6 +41,6 @@ Vagrant.configure("2") do |config|
     }
 
     # Be more chatty
-    # chef.log_level = :debug
+    chef.log_level = :debug
   end
 end

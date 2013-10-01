@@ -19,6 +19,11 @@ Vagrant.configure("2") do |config|
   # Allow accessing port 8080 on the guest via port 8081 on the host
   config.vm.network "forwarded_port", :guest => 8080, :host => 8081
 
+  # Allocate enough RAM for Rails app + database
+  config.vm.provider 'virtualbox' do |v|
+    v.customize ['modifyvm', :id, '--memory', 1024]
+  end
+
   # Install latest Chef version via platform-specific Omnibus package
   config.omnibus.chef_version = :latest
 

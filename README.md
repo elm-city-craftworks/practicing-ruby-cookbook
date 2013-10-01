@@ -12,8 +12,11 @@ Requirements
 
 ### Cookbooks:
 
-* [rbenv]
-* [ruby_build]
+* apt
+* openssl
+* postgresql
+* rbenv
+* ruby_build
 
 Attributes
 ----------
@@ -75,7 +78,5 @@ License:: Apache 2.0
 [Vagrant downloads page]: http://downloads.vagrantup.com/
 [Vagrant]: http://vagrantup.com
 [practicingruby-web]: https://github.com/elm-city-craftworks/practicing-ruby-web
-[rbenv]: https://github.com/fnichol/chef-rbenv
-[ruby_build]: https://github.com/fnichol/chef-ruby_build
 [vagrant-berkshelf]: https://github.com/RiotGames/vagrant-berkshelf
 [vagrant-omnibus]: https://github.com/schisamo/vagrant-omnibus

@@ -7,13 +7,3 @@
 package "nodejs"
 # For syntax highlighting
 package "python-pygments"
-
-# Deploy Practicing Ruby Rails app
-application "practicingruby" do
-  path       node["practicingruby"]["app"]["path"]
-  repository node["practicingruby"]["app"]["repository"]
-  revision   node["practicingruby"]["app"]["revision"]
-
-  rails do
-  end
-end

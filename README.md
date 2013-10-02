@@ -6,13 +6,21 @@ Sets up environment for [Practicing Ruby Rails app][practicingruby-web].
 Requirements
 ------------
 
-### Platform:
+### Chef
+
+The following Chef versions have been tested with this cookbook:
+
+* Chef 11.6.0 (Omnibus install)
+
+### Platform
 
 The following platforms have been tested with this cookbook:
 
 * Ubuntu 12.04 LTS (Precise Pangolin)
 
-### Cookbooks:
+### Cookbooks
+
+External cookbook dependencies:
 
 * apt
 * chruby

@@ -31,6 +31,9 @@ Vagrant.configure("2") do |config|
   # Use Berkshelf to make all cookbooks in "Berksfile" available to Vagrant
   config.berkshelf.enabled = true
 
+  # HACK: Speed up package download
+  config.vm.provision :shell, :inline => "sed -i 's!http://archive.ubuntu.com!http://de.archive.ubuntu.com!g' /etc/apt/sources.list"
+
   # Configure Chef Solo provisioner
   config.vm.provision :chef_solo do |chef|
     # Add recipes to be executed in given order
@@ -47,6 +50,6 @@ Vagrant.configure("2") do |config|
     }
 
     # Be more chatty
-    chef.log_level = :debug
+    # chef.log_level = :debug
   end
 end

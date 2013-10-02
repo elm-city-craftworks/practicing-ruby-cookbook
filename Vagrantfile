@@ -16,8 +16,8 @@ Vagrant.configure("2") do |config|
   # Set a nice hostname
   config.vm.hostname = "practicingruby"
 
-  # Allow accessing port 8080 on the guest via port 8081 on the host
-  config.vm.network "forwarded_port", :guest => 8080, :host => 8081
+  # Assign static IP to VM
+  config.vm.network "private_network", :ip => "10.11.12.13"
 
   # Mirror specs of production system
   config.vm.provider 'virtualbox' do |v|

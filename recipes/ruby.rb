@@ -2,31 +2,15 @@
 # Cookbook Name:: practicingruby
 # Recipe:: ruby
 #
-# Installs Ruby and gems with ruby-build and rbenv
-#
-# The used recipes and LWRPs are documented here:
-#
-# - https://github.com/fnichol/chef-ruby_build#readme
-# - https://github.com/fnichol/chef-rbenv#readme
+# Installs Ruby and Bundler
 #
 
-# Install ruby-build for rbenv_ruby LWRP
-include_recipe "ruby_build"
+# Build and install Ruby versions using chruby und ruby-build
+include_recipe "chruby::system"
 
-# Install rbenv for system-wide use
-include_recipe "rbenv::system_install"
-
-# Build and install Ruby version with ruby-build, and make it the global
-# version to be used in all shells
-ruby_version = node["practicingruby"]["ruby"]["version"]
-rbenv_ruby ruby_version
-rbenv_global ruby_version
-
-# Install Ruby gems into global Ruby version
-node["practicingruby"]["ruby"]["gems"].each do |gem|
-  rbenv_gem gem["name"] do
-    rbenv_version ruby_version
-    version       gem["version"] unless gem["version"].nil?
-    action        :install
-  end
+# Install Bundler
+gem_package "bundler" do
+  gem_binary "/opt/rubies/#{node[:chruby][:default]}/bin/gem"
+  options    "--no-ri --no-rdoc"
+  action     :install
 end

@@ -3,10 +3,9 @@
 # Attributes:: default
 #
 
-# Ruby version to install
-default["practicingruby"]["ruby"]["version"] = "2.0.0-p247"
-
-# List of Ruby gems to install
-# :name is the name of the gem to install
-# :version optionally defines a specific version of the gem
-default["practicingruby"]["ruby"]["gems"] = [{ :name => "bundler" }]
+# Override default chruby attributes
+set["chruby"]["rubies"] = {
+  "1.9.3-p392" => false,
+  "2.0.0-p247" => true
+}
+set["chruby"]["default"] = "2.0.0-p247"

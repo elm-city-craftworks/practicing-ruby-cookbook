@@ -13,21 +13,19 @@ Requirements
 ### Cookbooks:
 
 * apt
+* chruby
 * openssl
 * postgresql
-* rbenv
-* ruby_build
 
 Attributes
 ----------
-
-* `node["practicingruby"]["ruby"]["version"]` - Ruby version to install
-* `node["practicingruby"]["ruby"]["gems"]` - List of Ruby gems to install
 
 See `attributes/default.rb` for default values.
 
 Recipes
 -------
+
+XXX: Update this list
 
 ### practicingruby::default
 
@@ -35,7 +33,7 @@ Sets up environment for Practicing Ruby Rails app
 
 ### practicingruby::ruby
 
-Installs Ruby and gems
+Installs Ruby and Bundler
 
 Vagrant
 -------

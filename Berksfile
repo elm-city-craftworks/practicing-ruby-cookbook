@@ -8,7 +8,3 @@
 
 # Tell Berkshelf to read cookbook dependencies from metadata.rb
 metadata
-
-# Ruby cookbooks have to be downloaded from GitHub
-cookbook "rbenv",      :github => "fnichol/chef-rbenv"
-cookbook "ruby_build", :github => "fnichol/chef-ruby_build"

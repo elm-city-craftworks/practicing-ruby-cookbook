@@ -9,7 +9,7 @@ recipe            "practicingruby::default",    "Sets up environment for Practic
 recipe            "practicingruby::ruby",       "Installs Ruby and Bundler"
 recipe            "practicingruby::postgresql", "Installs PostgreSQL server and client"
 
-supports "ubuntu"
+supports "ubuntu", ">= 12.04"
 
 depends "apt"
 depends "chruby"

@@ -8,7 +8,9 @@ Requirements
 
 ### Platform:
 
-* Ubuntu
+The following platforms have been tested with this cookbook:
+
+* Ubuntu 12.04 LTS (Precise Pangolin)
 
 ### Cookbooks:
 

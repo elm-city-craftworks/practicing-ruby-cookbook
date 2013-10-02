@@ -39,8 +39,8 @@ Vagrant
 -------
 
 With [Vagrant], you can spin up a virtual machine and run this cookbook inside
-the VM with Chef Solo. The setup requires to install **Vagrant 1.3.x** from the
-[Vagrant downloads page]. You will also need the Vagrant plugins
+the VM with Chef Solo. The setup requires to install **Vagrant 1.3.4** or higher
+from the [Vagrant downloads page]. You will also need the Vagrant plugins
 [vagrant-berkshelf] and [vagrant-omnibus], which you can install this way:
 
     $ vagrant plugin install vagrant-berkshelf

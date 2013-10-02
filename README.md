@@ -14,7 +14,6 @@ Requirements
 
 * apt
 * chruby
-* openssl
 * postgresql
 
 Attributes
@@ -34,6 +33,10 @@ Sets up environment for Practicing Ruby Rails app
 ### practicingruby::ruby
 
 Installs Ruby and Bundler
+
+### practicingruby::postgresql
+
+Installs PostgreSQL server and client
 
 Vagrant
 -------

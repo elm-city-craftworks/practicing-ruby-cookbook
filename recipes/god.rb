@@ -11,4 +11,5 @@ gem_package "god" do
   action     :install
 end
 
-# XXX: install startup script & config
+# XXX: temporary hack to add god to PATH
+execute "ln -snf /opt/rubies/#{node[:chruby][:default]}/bin/god /usr/local/bin/god"

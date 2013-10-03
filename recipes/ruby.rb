@@ -14,3 +14,6 @@ gem_package "bundler" do
   options    "--no-ri --no-rdoc"
   action     :install
 end
+
+# XXX: temporary hack to add bundle to PATH
+execute "ln -snf /opt/rubies/#{node[:chruby][:default]}/bin/bundle /usr/local/bin/bundle"

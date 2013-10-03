@@ -25,6 +25,7 @@ External cookbook dependencies:
 * apt
 * chruby
 * postgresql
+* user
 
 Attributes
 ----------
@@ -47,6 +48,10 @@ Installs Ruby and Bundler
 ### practicingruby::postgresql
 
 Installs PostgreSQL server and client
+
+### practicingruby::deploy_user
+
+Creates deploy user
 
 Vagrant
 -------

@@ -17,7 +17,7 @@ end
 # Configure sudo privileges
 sudo node["practicingruby"]["deploy"]["username"] do
   user     node["practicingruby"]["deploy"]["username"]
-  commands node["practicingruby"]["deploy"]["commands"]
+  commands node["practicingruby"]["deploy"]["sudo_commands"]
   nopasswd true
   action   :install
 end

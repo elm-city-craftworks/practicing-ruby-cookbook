@@ -5,6 +5,9 @@
 # Installs God
 #
 
+# Install Ruby first
+include_recipe "practicingruby::ruby"
+
 # Install god gem
 gem_package "god" do
   gem_binary node["practicingruby"]["ruby"]["gem"]["binary"]

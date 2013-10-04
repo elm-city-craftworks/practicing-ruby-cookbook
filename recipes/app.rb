@@ -24,6 +24,7 @@ end
 # Create config files for Rails app
 %w(cache_cooker_settings.rb
    database.yml
+   mail_settings.rb
    mailchimp_settings.rb
    mixpanel.rb
    omniauth.rb
@@ -35,5 +36,9 @@ end
     group  node["practicingruby"]["deploy"]["username"]
     mode   "0644"
     action :create
+    variables(
+      # For secret_token.rb.erb
+      :secret => "the-secret-token"
+    )
   end
 end

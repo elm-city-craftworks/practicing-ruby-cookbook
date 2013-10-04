@@ -9,12 +9,14 @@ recipe            "practicingruby::default",     "Sets up environment for Practi
 recipe            "practicingruby::deploy_user", "Creates deploy user with limited sudo privileges"
 recipe            "practicingruby::ruby",        "Installs Ruby and Bundler"
 recipe            "practicingruby::postgresql",  "Installs PostgreSQL server and client"
+recipe            "practicingruby::nginx",       "Installs and configures Nginx"
 recipe            "practicingruby::god",         "Installs God"
 
 supports "ubuntu", ">= 12.04"
 
 depends "apt"
 depends "chruby"
+depends "nginx"
 depends "postgresql"
 depends "sudo"
 depends "user"

@@ -24,9 +24,10 @@ External cookbook dependencies:
 
 * apt
 * chruby
+* nginx
 * postgresql
-* user
 * sudo
+* user
 
 Attributes
 ----------
@@ -38,7 +39,7 @@ Recipes
 
 ### practicingruby::default
 
-Sets up environment for Practicing Ruby Rails app
+Sets up environment for Practicing Ruby Rails app. Includes all recipes below.
 
 ### practicingruby::deploy_user
 
@@ -51,6 +52,10 @@ Installs Ruby and Bundler
 ### practicingruby::postgresql
 
 Installs PostgreSQL server and client
+
+### practicingruby::nginx
+
+Installs and configures Nginx
 
 ### practicingruby::god
 

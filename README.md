@@ -81,6 +81,24 @@ Finally, this will stop and destroy the VM:
 
     $ vagrant destroy -f
 
+SSH
+---
+
+In order to SSH into the VM using the standard `ssh` command, add the following
+settings to your `~/.ssh/config` file. Afterwards, you can simply run `ssh
+practicingruby.local`.
+
+```
+Host practicingruby.local
+    HostName 10.11.12.13
+    User vagrant
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+    PasswordAuthentication no
+    IdentityFile ~/.vagrant.d/insecure_private_key
+    IdentitiesOnly yes
+```
+
 License and Author
 ------------------
 

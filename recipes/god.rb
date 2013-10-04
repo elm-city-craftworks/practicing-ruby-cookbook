@@ -5,11 +5,16 @@
 # Installs and configures God
 #
 
+# Install god gem
 gem_package "god" do
   gem_binary node["practicingruby"]["ruby"]["gem"]["binary"]
   options    node["practicingruby"]["ruby"]["gem"]["options"]
   action     :install
 end
 
-# XXX: temporary hack to add god to PATH
-execute "ln -snf /opt/rubies/#{node[:chruby][:default]}/bin/god /usr/local/bin/god"
+# HACK: allow to run god via sudo
+link "/usr/local/bin/god" do
+  to        "/opt/rubies/#{node["practicingruby"]["ruby"]["version"]}/bin/god"
+  link_type :symbolic
+  action    :create
+end

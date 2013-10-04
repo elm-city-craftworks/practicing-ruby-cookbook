@@ -26,6 +26,7 @@ External cookbook dependencies:
 * chruby
 * postgresql
 * user
+* sudo
 
 Attributes
 ----------
@@ -51,7 +52,7 @@ Installs PostgreSQL server and client
 
 ### practicingruby::deploy_user
 
-Creates deploy user
+Creates deploy user with limited sudo privileges
 
 Vagrant
 -------

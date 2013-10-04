@@ -8,11 +8,12 @@ version           "1.0.0"
 recipe            "practicingruby::default",     "Sets up environment for Practicing Ruby Rails app"
 recipe            "practicingruby::ruby",        "Installs Ruby and Bundler"
 recipe            "practicingruby::postgresql",  "Installs PostgreSQL server and client"
-recipe            "practicingruby::deploy_user", "Creates deploy user"
+recipe            "practicingruby::deploy_user", "Creates deploy user with limited sudo privileges"
 
 supports "ubuntu", ">= 12.04"
 
 depends "apt"
 depends "chruby"
 depends "postgresql"
+depends "sudo"
 depends "user"

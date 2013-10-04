@@ -16,6 +16,7 @@ supports "ubuntu", ">= 12.04"
 
 depends "apt"
 depends "chruby"
+depends "database"
 depends "nginx"
 depends "postgresql"
 depends "sudo"

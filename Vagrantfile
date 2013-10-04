@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
   # Configure Chef Solo provisioner
   config.vm.provision :chef_solo do |chef|
     # Add recipes to be executed in given order
-    chef.add_recipe "practicingruby"
+    chef.add_recipe "practicingruby::default"
 
     # Pass custom JSON data to cookbooks that will be accessible via "node"
     # variable at runtime

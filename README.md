@@ -36,11 +36,13 @@ See `attributes/default.rb` for default values.
 Recipes
 -------
 
-XXX: Update this list
-
 ### practicingruby::default
 
 Sets up environment for Practicing Ruby Rails app
+
+### practicingruby::deploy_user
+
+Creates deploy user with limited sudo privileges
 
 ### practicingruby::ruby
 
@@ -50,9 +52,9 @@ Installs Ruby and Bundler
 
 Installs PostgreSQL server and client
 
-### practicingruby::deploy_user
+### practicingruby::god
 
-Creates deploy user with limited sudo privileges
+Installs God
 
 Vagrant
 -------

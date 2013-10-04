@@ -2,7 +2,7 @@
 # Cookbook Name:: practicingruby
 # Recipe:: god
 #
-# Installs and configures God
+# Installs God
 #
 
 # Install god gem

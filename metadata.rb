@@ -6,9 +6,10 @@ description       "Sets up environment for Practicing Ruby Rails app"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version           "1.0.0"
 recipe            "practicingruby::default",     "Sets up environment for Practicing Ruby Rails app"
+recipe            "practicingruby::deploy_user", "Creates deploy user with limited sudo privileges"
 recipe            "practicingruby::ruby",        "Installs Ruby and Bundler"
 recipe            "practicingruby::postgresql",  "Installs PostgreSQL server and client"
-recipe            "practicingruby::deploy_user", "Creates deploy user with limited sudo privileges"
+recipe            "practicingruby::god",         "Installs God"
 
 supports "ubuntu", ">= 12.04"
 

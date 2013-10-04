@@ -21,6 +21,3 @@ gem_package "bundler" do
   options    node["practicingruby"]["ruby"]["gem"]["options"]
   action     :install
 end
-
-# XXX: temporary hack to add bundle to PATH
-execute "ln -snf /opt/rubies/#{node[:chruby][:default]}/bin/bundle /usr/local/bin/bundle"

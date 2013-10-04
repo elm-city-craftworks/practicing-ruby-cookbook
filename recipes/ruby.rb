@@ -17,8 +17,8 @@ include_recipe "chruby::system"
 
 # Install Bundler
 gem_package "bundler" do
-  gem_binary "/opt/rubies/#{node[:chruby][:default]}/bin/gem"
-  options    "--no-ri --no-rdoc"
+  gem_binary node["practicingruby"]["ruby"]["gem"]["binary"]
+  options    node["practicingruby"]["ruby"]["gem"]["options"]
   action     :install
 end
 

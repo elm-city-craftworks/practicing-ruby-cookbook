@@ -12,14 +12,16 @@ include_recipe "postgresql::client"
 # Include postgresql_database
 include_recipe "database::postgresql"
 
-# Create production database
+# Create databases for Rails app
 postgresql_connection_info = {
   :host     => "127.0.0.1",
   :port     => node["postgresql"]["config"]["port"],
   :username => "postgres",
   :password => node["postgresql"]["password"]["postgres"]
 }
-postgresql_database "practicing-ruby-production" do
-  connection postgresql_connection_info
-  action     :create
+%w(devel test production).each do |db|
+  postgresql_database "practicing-ruby-#{db}" do
+    connection postgresql_connection_info
+    action     :create
+  end
 end

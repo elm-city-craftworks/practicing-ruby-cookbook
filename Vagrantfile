@@ -55,7 +55,7 @@ Vagrant.configure("2") do |config|
       }
     }
 
-    # Be more chatty
-    # chef.log_level = :debug
+    # Set Chef log level
+    chef.log_level = ENV.fetch("CHEF_LOG", "info")
   end
 end

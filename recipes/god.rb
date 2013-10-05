@@ -40,8 +40,8 @@ file "/etc/god/master.conf" do
 end
 
 # Install startup script
-template "/etc/init.d/god" do
-  source "god_init.erb"
+cookbook_file "/etc/init.d/god" do
+  source "god.sh"
   owner  "root"
   group  "root"
   mode   "0755"

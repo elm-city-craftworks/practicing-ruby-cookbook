@@ -8,8 +8,7 @@
 #
  
 CONF_DIR=/etc/god
-GOD_BIN=/usr/local/bin/god
-RUBY_BIN=/usr/local/bin/ruby
+GOD_BIN=god
 RETVAL=0
  
 # Go no further if config directory is missing.
@@ -18,20 +17,20 @@ RETVAL=0
 case "$1" in
     start)
       # Create pid directory
-      $RUBY_BIN $GOD_BIN -c $CONF_DIR/master.conf
+      $GOD_BIN -c $CONF_DIR/master.conf
       RETVAL=$?
   ;;
     stop)
-      $RUBY_BIN $GOD_BIN terminate
+      $GOD_BIN terminate
       RETVAL=$?
   ;;
     restart)
-      $RUBY_BIN $GOD_BIN terminate
-      $RUBY_BIN $GOD_BIN -c $CONF_DIR/master.conf
+      $GOD_BIN terminate
+      $GOD_BIN -c $CONF_DIR/master.conf
       RETVAL=$?
   ;;
     status)
-      $RUBY_BIN $GOD_BIN status
+      $GOD_BIN status
       RETVAL=$?
   ;;
     *)

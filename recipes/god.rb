@@ -22,6 +22,23 @@ link "/usr/local/bin/god" do
   action    :create
 end
 
+# Create config directory
+directory "/etc/god" do
+  owner  "root"
+  group  "root"
+  mode   "0755"
+  action :create
+end
+
+# Create config file
+file "/etc/god/master.conf" do
+  owner   "root"
+  group   "root"
+  mode    "0644"
+  content "load '/home/deploy/current/config/delayed_job.god'\n"
+  action  :create
+end
+
 # Install startup script
 template "/etc/init.d/god" do
   source "god_init.erb"

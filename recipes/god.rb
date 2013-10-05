@@ -15,7 +15,7 @@ gem_package "god" do
   action     :install
 end
 
-# HACK: allow to run god via sudo
+# Add god to default PATH for sudo and startup script
 link "/usr/local/bin/god" do
   to        "/opt/rubies/#{node["practicingruby"]["ruby"]["version"]}/bin/god"
   link_type :symbolic
@@ -46,4 +46,10 @@ cookbook_file "/etc/init.d/god" do
   group  "root"
   mode   "0755"
   action :create
+end
+
+# Start god
+service "god" do
+  supports :status => true, :restart => true
+  action   [:enable, :start]
 end

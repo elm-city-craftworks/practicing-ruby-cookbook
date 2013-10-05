@@ -21,3 +21,12 @@ link "/usr/local/bin/god" do
   link_type :symbolic
   action    :create
 end
+
+# Install startup script
+template "/etc/init.d/god" do
+  source "god_init.erb"
+  owner  "root"
+  group  "root"
+  mode   "0755"
+  action :create
+end

@@ -38,7 +38,7 @@ end
     action :create
     variables(
       # For secret_token.rb.erb
-      :secret => "the-secret-token"
+      :secret => "3f8e352c942d04b489795f5a9fe464c0"
     )
   end
 end

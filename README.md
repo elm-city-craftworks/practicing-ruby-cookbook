@@ -24,6 +24,7 @@ External cookbook dependencies:
 
 * apt
 * chruby
+* database
 * nginx
 * postgresql
 * sudo

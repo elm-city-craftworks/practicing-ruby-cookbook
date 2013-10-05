@@ -56,6 +56,6 @@ Vagrant.configure("2") do |config|
     }
 
     # Set Chef log level
-    chef.log_level = ENV.fetch("CHEF_LOG", "info")
+    chef.log_level = ENV.fetch("CHEF_LOG", "info").downcase.to_sym
   end
 end

@@ -32,11 +32,12 @@ end
 
 # Create config file
 template "/etc/god/master.conf" do
-  source  "god.conf.erb"
-  owner   "root"
-  group   "root"
-  mode    "0644"
-  action  :create
+  source   "god.conf.erb"
+  owner    "root"
+  group    "root"
+  mode     "0644"
+  action   :create
+  notifies :restart, "service[god]"
   variables(
     :god_file => "/home/#{node["practicingruby"]["deploy"]["username"]}/current/config/delayed_job.god"
   )

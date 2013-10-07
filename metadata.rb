@@ -10,7 +10,7 @@ recipe            "practicingruby::deploy_user", "Creates deploy user with limit
 recipe            "practicingruby::ruby",        "Installs Ruby and Bundler"
 recipe            "practicingruby::postgresql",  "Installs PostgreSQL server and client"
 recipe            "practicingruby::nginx",       "Installs and configures Nginx"
-recipe            "practicingruby::god",         "Installs God"
+recipe            "practicingruby::god",         "Installs, configures, and starts God"
 
 supports "ubuntu", ">= 12.04"
 

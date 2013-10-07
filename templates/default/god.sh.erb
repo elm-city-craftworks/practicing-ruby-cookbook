@@ -9,6 +9,7 @@
  
 CONF_DIR=/etc/god
 GOD_BIN=god
+RUBY_BIN="chruby-exec <%= @ruby_version %> --"
 RETVAL=0
  
 # Go no further if config directory is missing.
@@ -17,20 +18,20 @@ RETVAL=0
 case "$1" in
     start)
       # Create pid directory
-      $GOD_BIN -c $CONF_DIR/master.conf
+      $RUBY_BIN $GOD_BIN -c $CONF_DIR/master.conf
       RETVAL=$?
   ;;
     stop)
-      $GOD_BIN terminate
+      $RUBY_BIN $GOD_BIN terminate
       RETVAL=$?
   ;;
     restart)
-      $GOD_BIN terminate
-      $GOD_BIN -c $CONF_DIR/master.conf
+      $RUBY_BIN $GOD_BIN terminate
+      $RUBY_BIN $GOD_BIN -c $CONF_DIR/master.conf
       RETVAL=$?
   ;;
     status)
-      $GOD_BIN status
+      $RUBY_BIN $GOD_BIN status
       RETVAL=$?
   ;;
     *)

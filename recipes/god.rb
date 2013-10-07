@@ -2,7 +2,7 @@
 # Cookbook Name:: practicingruby
 # Recipe:: god
 #
-# Installs God
+# Installs, configures, and starts God
 #
 
 # Install Ruby first
@@ -31,21 +31,27 @@ directory "/etc/god" do
 end
 
 # Create config file
-file "/etc/god/master.conf" do
+template "/etc/god/master.conf" do
+  source  "god.conf.erb"
   owner   "root"
   group   "root"
   mode    "0644"
-  content "load '/home/deploy/current/config/delayed_job.god'\n"
   action  :create
+  variables(
+    :god_file => "/home/#{node["practicingruby"]["deploy"]["username"]}/current/config/delayed_job.god"
+  )
 end
 
 # Install startup script
-cookbook_file "/etc/init.d/god" do
-  source "god.sh"
+template "/etc/init.d/god" do
+  source "god.sh.erb"
   owner  "root"
   group  "root"
   mode   "0755"
   action :create
+  variables(
+    :ruby_version => node["practicingruby"]["ruby"]["version"]
+  )
 end
 
 # Start god

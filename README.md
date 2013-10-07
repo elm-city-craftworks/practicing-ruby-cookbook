@@ -60,7 +60,7 @@ Installs and configures Nginx
 
 ### practicingruby::god
 
-Installs God
+Installs, configures, and starts God
 
 Vagrant
 -------

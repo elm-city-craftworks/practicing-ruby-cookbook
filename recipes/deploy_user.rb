@@ -2,7 +2,7 @@
 # Cookbook Name:: practicingruby
 # Recipe:: deploy_user
 #
-# Creates deploy user with limited sudo privileges
+# Creates deployment user for Capistrano
 #
 
 # Create deploy user

@@ -44,7 +44,7 @@ Sets up environment for Practicing Ruby Rails app. Includes all recipes below.
 
 ### practicingruby::deploy_user
 
-Creates deploy user with limited sudo privileges
+Creates deployment user for Capistrano
 
 ### practicingruby::ruby
 

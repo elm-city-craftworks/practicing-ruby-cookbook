@@ -20,3 +20,5 @@ default["practicingruby"]["app"]["secret_token"]              = "3f8e352c942d04b
 default["practicingruby"]["app"]["stripe"]["secret_key"]      = "SECRET"
 default["practicingruby"]["app"]["stripe"]["publishable_key"] = "PUBLISHABLE"
 default["practicingruby"]["app"]["stripe"]["webhook_path"]    = "/oh/yeah/stripe/webhooks"
+default["practicingruby"]["app"]["omniauth"]["github_key"]    = "client-key"
+default["practicingruby"]["app"]["omniauth"]["github_secret"] = "seekrit"

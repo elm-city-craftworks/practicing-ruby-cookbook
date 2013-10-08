@@ -28,3 +28,7 @@ default["practicingruby"]["app"]["mailchimp"]["testers"]      = ["your@email.com
 default["practicingruby"]["app"]["mailchimp"]["sender_name"]  = "Your Sender Name"
 default["practicingruby"]["app"]["mailchimp"]["sender_email"] = "Your Sender Email"
 default["practicingruby"]["app"]["mailchimp"]["webhook_key"]  = "Your webhook key"
+default["practicingruby"]["app"]["cachecooker"]["base_uri"]   = "http://practicingruby.dev"
+default["practicingruby"]["app"]["cachecooker"]["username"]   = "cachecooker"
+default["practicingruby"]["app"]["cachecooker"]["password"]   = "supersecret"
+default["practicingruby"]["app"]["cachecooker"]["realm"]      = "Practicing Ruby"

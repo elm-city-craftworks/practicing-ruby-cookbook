@@ -2,6 +2,8 @@
 # Cookbook Name:: practicingruby
 # Recipe:: app
 #
+# Prepares configuration of Rails app for Capistrano
+#
 
 # Install JavaScript runtime for Rails app
 package "nodejs"

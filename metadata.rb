@@ -11,6 +11,7 @@ recipe            "practicingruby::ruby",        "Installs Ruby and Bundler"
 recipe            "practicingruby::postgresql",  "Installs PostgreSQL server and client"
 recipe            "practicingruby::nginx",       "Installs and configures Nginx"
 recipe            "practicingruby::god",         "Installs, configures, and starts God"
+recipe            "practicingruby::app",         "Prepares configuration of Rails app for Capistrano"
 
 supports "ubuntu", ">= 12.04"
 

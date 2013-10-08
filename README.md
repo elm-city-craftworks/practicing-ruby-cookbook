@@ -62,6 +62,10 @@ Installs and configures Nginx
 
 Installs, configures, and starts God
 
+### practicingruby::app
+
+Prepares configuration of Rails app for Capistrano
+
 Vagrant
 -------
 

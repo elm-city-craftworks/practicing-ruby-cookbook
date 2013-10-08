@@ -1,3 +1,3 @@
-STRIPE_SECRET_KEY      = 'SECRET'
-STRIPE_PUBLISHABLE_KEY = 'PUBLISHABLE'
-STRIPE_WEBHOOK_PATH    = '/oh/yeah/stripe/webhooks'
+STRIPE_SECRET_KEY      = "<%= @app["stripe"]["secret_key"] %>"
+STRIPE_PUBLISHABLE_KEY = "<%= @app["stripe"]["publishable_key"] %>"
+STRIPE_WEBHOOK_PATH    = "<%= @app["stripe"]["webhook_path"] %>"

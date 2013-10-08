@@ -16,4 +16,7 @@ default["practicingruby"]["deploy"]["ssh_keys"]      = []
 default["practicingruby"]["deploy"]["sudo_commands"] = ["/usr/local/bin/god"]
 
 # Rails app settings
-default["practicingruby"]["app"]["secret_token"] = "3f8e352c942d04b489795f5a9fe464c0"
+default["practicingruby"]["app"]["secret_token"]              = "3f8e352c942d04b489795f5a9fe464c0"
+default["practicingruby"]["app"]["stripe"]["secret_key"]      = "SECRET"
+default["practicingruby"]["app"]["stripe"]["publishable_key"] = "PUBLISHABLE"
+default["practicingruby"]["app"]["stripe"]["webhook_path"]    = "/oh/yeah/stripe/webhooks"

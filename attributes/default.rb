@@ -14,6 +14,7 @@ default["practicingruby"]["ruby"]["gem"]["options"] = "--no-ri --no-rdoc"
 default["practicingruby"]["deploy"]["username"]      = "deploy"
 default["practicingruby"]["deploy"]["ssh_keys"]      = []
 default["practicingruby"]["deploy"]["sudo_commands"] = ["/usr/local/bin/god"]
+default["practicingruby"]["deploy"]["home_dir"]      = "/home/#{node["practicingruby"]["deploy"]["username"]}"
 
 # Rails app settings
 default["practicingruby"]["app"]["secret_token"]              = "3f8e352c942d04b489795f5a9fe464c0"

@@ -39,7 +39,7 @@ template "/etc/god/master.conf" do
   action   :create
   notifies :restart, "service[god]"
   variables(
-    :god_file => "/home/#{node["practicingruby"]["deploy"]["username"]}/current/config/delayed_job.god"
+    :god_file => "#{node["practicingruby"]["deploy"]["home_dir"]}/current/config/delayed_job.god"
   )
 end
 

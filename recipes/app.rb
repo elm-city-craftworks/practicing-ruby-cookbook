@@ -37,8 +37,7 @@ end
     mode   "0644"
     action :create
     variables(
-      # For secret_token.rb.erb
-      :secret => "3f8e352c942d04b489795f5a9fe464c0"
+      :app => node["practicingruby"]["app"]
     )
   end
 end

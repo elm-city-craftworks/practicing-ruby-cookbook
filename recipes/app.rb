@@ -24,7 +24,6 @@ end
 # Create config files for Rails app
 %w(cache_cooker_settings.rb
    database.yml
-   mail_settings.rb
    mailchimp_settings.rb
    mixpanel.rb
    omniauth.rb

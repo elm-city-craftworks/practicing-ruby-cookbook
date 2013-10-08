@@ -32,3 +32,4 @@ default["practicingruby"]["app"]["cachecooker"]["base_uri"]   = "http://practici
 default["practicingruby"]["app"]["cachecooker"]["username"]   = "cachecooker"
 default["practicingruby"]["app"]["cachecooker"]["password"]   = "supersecret"
 default["practicingruby"]["app"]["cachecooker"]["realm"]      = "Practicing Ruby"
+default["practicingruby"]["app"]["mixpanel"]["api_token"]     = "..."

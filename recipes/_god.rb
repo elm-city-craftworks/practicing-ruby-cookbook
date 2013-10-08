@@ -6,7 +6,7 @@
 #
 
 # Install Ruby first
-include_recipe "practicingruby::ruby"
+include_recipe "practicingruby::_ruby"
 
 # Install god gem
 gem_package "god" do

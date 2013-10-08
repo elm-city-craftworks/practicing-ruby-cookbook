@@ -40,31 +40,7 @@ Recipes
 
 ### practicingruby::default
 
-Sets up environment for Practicing Ruby Rails app. Includes all recipes below.
-
-### practicingruby::deploy_user
-
-Creates deployment user for Capistrano
-
-### practicingruby::ruby
-
-Installs Ruby and Bundler
-
-### practicingruby::postgresql
-
-Installs PostgreSQL server and client
-
-### practicingruby::nginx
-
-Installs and configures Nginx
-
-### practicingruby::god
-
-Installs, configures, and starts God
-
-### practicingruby::app
-
-Prepares configuration of Rails app for Capistrano
+Sets up environment for Practicing Ruby Rails app
 
 Vagrant
 -------

@@ -9,9 +9,9 @@
 include_recipe "apt::default"
 
 # Include all the pieces
-include_recipe "practicingruby::deploy_user"
-include_recipe "practicingruby::ruby"
-include_recipe "practicingruby::postgresql"
-include_recipe "practicingruby::nginx"
-include_recipe "practicingruby::god"
-include_recipe "practicingruby::app"
+include_recipe "practicingruby::_deploy_user"
+include_recipe "practicingruby::_ruby"
+include_recipe "practicingruby::_postgresql"
+include_recipe "practicingruby::_nginx"
+include_recipe "practicingruby::_god"
+include_recipe "practicingruby::_app"

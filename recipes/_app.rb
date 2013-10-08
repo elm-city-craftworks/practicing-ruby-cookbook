@@ -12,7 +12,7 @@ package "nodejs"
 package "python-pygments"
 
 # Create deploy user first
-include_recipe "practicingruby::deploy_user"
+include_recipe "practicingruby::_deploy_user"
 
 # Create shared directory that will be used by Capistrano
 shared_dir = File.join(node["practicingruby"]["deploy"]["home_dir"], "shared")

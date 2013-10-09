@@ -1,11 +1,7 @@
 # vi: set ft=ruby :
 #
-# This Vagrantfile requires the following Vagrant plugins to be installed:
-#
-# - vagrant-berkshelf
-# - vagrant-omnibus
-#
-# As the used Vagrant box is a VirtualBox image, VirtualBox is needed as well.
+# This Vagrantfile requires the "vagrant-omnibus" plugin to be installed. As
+# the used Vagrant box is a VirtualBox image, VirtualBox is needed as well.
 #
 
 Vagrant.configure("2") do |config|
@@ -28,14 +24,14 @@ Vagrant.configure("2") do |config|
   # Install latest Chef version via platform-specific Omnibus package
   config.omnibus.chef_version = :latest
 
-  # Use Berkshelf to make all cookbooks in "Berksfile" available to Vagrant
-  config.berkshelf.enabled = true
-
   # HACK: Speed up package download
   config.vm.provision :shell, :inline => "sed -i 's!http://archive.ubuntu.com!http://de.archive.ubuntu.com!g' /etc/apt/sources.list"
 
   # Configure Chef Solo provisioner
   config.vm.provision :chef_solo do |chef|
+    # Tell Vagrant where the cookbooks are located
+    chef.cookbooks_path = "cookbooks"
+
     # Add recipes to be executed in given order
     chef.add_recipe "practicingruby::default"
 

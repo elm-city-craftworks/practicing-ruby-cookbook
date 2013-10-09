@@ -47,11 +47,16 @@ Vagrant
 
 With [Vagrant], you can spin up a virtual machine and run this cookbook inside
 the VM with Chef Solo. The setup requires to install **Vagrant 1.3.4** or higher
-from the [Vagrant downloads page]. You will also need the Vagrant plugins
-[vagrant-berkshelf] and [vagrant-omnibus], which you can install this way:
+from the [Vagrant downloads page]. You will also need the Vagrant plugin
+[vagrant-omnibus], which you can install this way:
 
-    $ vagrant plugin install vagrant-berkshelf
     $ vagrant plugin install vagrant-omnibus
+
+Furthermore, [Berkshelf] is used to set up the cookbook and its dependencies
+prior to running Vagrant. Install the Berkshelf gem with `bundle install` and
+then run:
+
+    $ bundle exec berks install --path cookbooks
 
 When everything is in place, this command will boot and provision the VM as
 specified in the `Vagrantfile`:
@@ -98,8 +103,8 @@ Copyright:: 2013, Mathias Lafeldt
 License:: Apache 2.0
 
 
+[Berkshelf]: http://berkshelf.com/
 [Vagrant downloads page]: http://downloads.vagrantup.com/
 [Vagrant]: http://vagrantup.com
 [practicingruby-web]: https://github.com/elm-city-craftworks/practicing-ruby-web
-[vagrant-berkshelf]: https://github.com/RiotGames/vagrant-berkshelf
 [vagrant-omnibus]: https://github.com/schisamo/vagrant-omnibus

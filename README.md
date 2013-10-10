@@ -56,7 +56,7 @@ Furthermore, [Berkshelf] is used to set up the cookbook and its dependencies
 prior to running Vagrant. Install the Berkshelf gem with `bundle install` and
 then run:
 
-    $ bundle exec berks install --path cookbooks
+    $ bundle exec berks install --path vendor/cookbooks
 
 When everything is in place, this command will boot and provision the VM as
 specified in the `Vagrantfile`:

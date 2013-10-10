@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
   # Configure Chef Solo provisioner
   config.vm.provision :chef_solo do |chef|
     # Tell Vagrant where the cookbooks are located
-    chef.cookbooks_path = "cookbooks"
+    chef.cookbooks_path = "vendor/cookbooks"
 
     # Add recipes to be executed in given order
     chef.add_recipe "practicingruby::default"

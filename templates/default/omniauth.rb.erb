@@ -1,3 +1,3 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, "<%= @app["omniauth"]["github_key"] %>", "<%= @app["omniauth"]["github_secret"] %>"
+  provider :github, "<%= @rails["omniauth"]["github_key"] %>", "<%= @rails["omniauth"]["github_secret"] %>"
 end

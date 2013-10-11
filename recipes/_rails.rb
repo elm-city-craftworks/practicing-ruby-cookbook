@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: practicingruby
-# Recipe:: app
+# Recipe:: rails
 #
 # Prepares configuration of Rails app for Capistrano
 #
@@ -38,7 +38,7 @@ end
     mode   "0644"
     action :create
     variables(
-      :app => node["practicingruby"]["app"]
+      :rails => node["practicingruby"]["rails"]
     )
   end
 end

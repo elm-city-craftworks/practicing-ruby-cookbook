@@ -9,6 +9,18 @@ default["practicingruby"]["ruby"]["version"]        = "2.0.0-p247"
 default["practicingruby"]["ruby"]["gem"]["binary"]  = "/opt/rubies/#{node["practicingruby"]["ruby"]["version"]}/bin/gem"
 default["practicingruby"]["ruby"]["gem"]["options"] = "--no-ri --no-rdoc"
 
+# Databases to create
+default["practicingruby"]["databases"] = {
+  "practicing-ruby-production" => true,
+}
+default["practicingruby"]["database"]["practicing-ruby-production"] = {
+  "environment" => "production",
+  "adapter"     => "postgresql",
+  "host"        => "localhost",
+  "username"    => "postgres",
+  "password"    => "practicingruby",
+}
+
 # Deployment user for Capistrano
 default["practicingruby"]["deploy"]["username"]      = "deploy"
 default["practicingruby"]["deploy"]["ssh_keys"]      = []

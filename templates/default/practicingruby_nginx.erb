@@ -1,0 +1,95 @@
+server {
+  listen 80;
+  server_name practicingruby.com www.practicingruby.com;
+  rewrite ^ https://$server_name$request_uri? permanent;
+}
+
+upstream app_server {
+  # fail_timeout=0 means we always retry an upstream even if it failed
+  # to return a good HTTP response (in case the Unicorn master nukes a
+  # single worker for timing out).
+
+  # for UNIX domain socket setups:
+  server unix:/tmp/unicorn.practicingruby.sock fail_timeout=0;
+}
+
+server {
+  listen 443;
+
+  client_max_body_size 4G;
+
+  ssl                  on;
+  ssl_certificate      /home/deploy/shared/ssl/practicingruby.com.pem;
+  ssl_certificate_key  /home/deploy/shared/ssl/practicingruby.com.key;
+
+  ssl_session_timeout  5m;
+
+  ssl_protocols  SSLv2 SSLv3 TLSv1;
+  ssl_ciphers  ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
+  ssl_prefer_server_ciphers   on;
+
+  if (-f $document_root/system/maintenance.html) {
+      return 503;
+  }
+
+  error_page 503 @maintenance;
+  location @maintenance {
+      rewrite  ^(.*)$  /system/maintenance.html last;
+      break;
+  }
+
+  # ~2 seconds is often enough for most folks to parse HTML/CSS and
+  # retrieve needed images/icons/frames, connections are cheap in
+  # nginx so increasing this is generally safe...
+  keepalive_timeout 5;
+
+  # path for static files
+  root /home/deploy/current/public;
+
+  # Prefer to serve static files directly from nginx to avoid unnecessary
+  # data copies from the application server.
+  #
+  # try_files directive appeared in in nginx 0.7.27 and has stabilized
+  # over time.  Older versions of nginx (e.g. 0.6.x) requires
+  # "if (!-f $request_filename)" which was less efficient:
+  # http://bogomips.org/unicorn.git/tree/examples/nginx.conf?id=v3.3.1#n127
+  try_files $uri/index.html $uri.html $uri @app;
+
+  location @app {
+    # an HTTP header important enough to have its own Wikipedia entry:
+    #   http://en.wikipedia.org/wiki/X-Forwarded-For
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+    # enable this if you forward HTTPS traffic to unicorn,
+    # this helps Rack set the proper URL scheme for doing redirects:
+    # proxy_set_header X-Forwarded-Proto $scheme;
+
+    # pass the Host: header from the client right along so redirects
+    # can be set properly within the Rack application
+    proxy_set_header Host $http_host;
+
+    # we don't want nginx trying to do something clever with
+    # redirects, we set the Host: header above already.
+    proxy_redirect off;
+
+    # set "proxy_buffering off" *only* for Rainbows! when doing
+    # Comet/long-poll/streaming.  It's also safe to set if you're using
+    # only serving fast clients with Unicorn + nginx, but not slow
+    # clients.  You normally want nginx to buffer responses to slow
+    # clients, even with Rails 3.1 streaming because otherwise a slow
+    # client can become a bottleneck of Unicorn.
+    #
+    # The Rack application may also set "X-Accel-Buffering (yes|no)"
+    # in the response headers do disable/enable buffering on a
+    # per-response basis.
+    # proxy_buffering off;
+
+    proxy_pass http://app_server;
+  }
+
+  # Rails error pages
+  error_page 404 402 500 /500.html;
+  location = /500.html {
+    root /home/deploy/current/public;
+  }
+}

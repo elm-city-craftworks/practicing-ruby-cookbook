@@ -9,7 +9,7 @@
 include_recipe "postgresql::server"
 include_recipe "postgresql::client"
 
-# Make postgresql_database resource available
+# Make database resource available
 include_recipe "database::postgresql"
 
 # Create databases for Rails app

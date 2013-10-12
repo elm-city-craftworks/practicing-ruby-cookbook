@@ -12,6 +12,24 @@ node.set["nginx"]["worker_connections"] = 768
 # Install Nginx and set up nginx.conf
 include_recipe "nginx::default"
 
+# Create SSL certificate file
+file node["practicingruby"]["ssl"]["certificate_file"] do
+  owner   "root"
+  group   "root"
+  mode    "0644"
+  content node["practicingruby"]["ssl"]["certificate"]
+  action  :create
+end
+
+# Create SSL private key file
+file node["practicingruby"]["ssl"]["private_key_file"] do
+  owner   "root"
+  group   "root"
+  mode    "0644"
+  content node["practicingruby"]["ssl"]["private_key"]
+  action  :create
+end
+
 # Create practicingruby site config
 template "#{node["nginx"]["dir"]}/sites-available/practicingruby" do
   source "practicingruby_nginx.erb"
@@ -19,6 +37,10 @@ template "#{node["nginx"]["dir"]}/sites-available/practicingruby" do
   group  "root"
   mode   "0644"
   action :create
+  variables(
+    :ssl_certificate     => node["practicingruby"]["ssl"]["certificate_file"],
+    :ssl_certificate_key => node["practicingruby"]["ssl"]["private_key_file"]
+  )
 end
 
 # Enable practicingruby site

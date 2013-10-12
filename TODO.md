@@ -1,4 +1,3 @@
-* Deploy self-signed certificate for Nginx.
 * Document how to use Capistrano after provisioning.
 * Revise documentation of Vagrant, esp. requirements.
 

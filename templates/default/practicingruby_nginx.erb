@@ -19,8 +19,8 @@ server {
   client_max_body_size 4G;
 
   ssl                  on;
-  ssl_certificate      /home/deploy/shared/ssl/practicingruby.com.pem;
-  ssl_certificate_key  /home/deploy/shared/ssl/practicingruby.com.key;
+  ssl_certificate      <%= @ssl_certificate %>;
+  ssl_certificate_key  <%= @ssl_certificate_key %>;
 
   ssl_session_timeout  5m;
 

@@ -21,8 +21,8 @@ Vagrant.configure("2") do |config|
     v.customize ['modifyvm', :id, '--cpus', 1]
   end
 
-  # Install latest Chef version via platform-specific Omnibus package
-  config.omnibus.chef_version = :latest
+  # Install Chef via platform-specific Omnibus package
+  config.omnibus.chef_version = "11.6.2"
 
   # Configure Chef Solo provisioner
   config.vm.provision :chef_solo do |chef|

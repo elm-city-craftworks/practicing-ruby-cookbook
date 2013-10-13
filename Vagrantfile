@@ -24,9 +24,6 @@ Vagrant.configure("2") do |config|
   # Install latest Chef version via platform-specific Omnibus package
   config.omnibus.chef_version = :latest
 
-  # HACK: Speed up package download
-  config.vm.provision :shell, :inline => "sed -i 's!http://archive.ubuntu.com!http://de.archive.ubuntu.com!g' /etc/apt/sources.list"
-
   # Configure Chef Solo provisioner
   config.vm.provision :chef_solo do |chef|
     # Tell Vagrant where the cookbooks are located

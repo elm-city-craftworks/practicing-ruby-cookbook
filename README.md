@@ -1,7 +1,10 @@
 Practicing Ruby Cookbook
 ========================
 
-Sets up environment for [Practicing Ruby Rails app][practicingruby-web].
+This Chef cookbook fully automates the process of setting up an environment that
+can run the [Practicing Ruby Rails app][practicingruby-web]. It takes a bare
+Ubuntu system from zero to the point where Practicing Ruby can be deployed with
+Capistrano.
 
 Requirements
 ------------
@@ -10,7 +13,7 @@ Requirements
 
 The following Chef versions have been tested with this cookbook:
 
-* Chef 11.6.0 (Omnibus install)
+* Chef 11.6.x (Omnibus install)
 
 ### Platform
 
@@ -33,14 +36,27 @@ External cookbook dependencies:
 Attributes
 ----------
 
-See `attributes/default.rb` for default values.
+See `attributes/default.rb` for a list of all configurable Chef attributes and
+their default values.
 
 Recipes
 -------
 
 ### practicingruby::default
 
-Sets up environment for Practicing Ruby Rails app
+The default recipe sets up everything required to deploy the Practicing Ruby app
+with Capistrano. To use it, you must at least override these node attributes
+with valid values:
+
+* `node["practicingruby"]["rails"]["omniauth"]["github_key"]`
+* `node["practicingruby"]["rails"]["omniauth"]["github_secret"]`
+
+Ideally, you should override these attributes as well:
+
+* `node["practicingruby"]["deploy"]["ssh_keys"]`
+* `node["practicingruby"]["ssl"]["certificate"]`
+* `node["practicingruby"]["ssl"]["private_key"]`
+* `node['postgresql']['password']['postgres']` (for Chef Solo only)
 
 Vagrant
 -------
@@ -75,12 +91,13 @@ Finally, this will stop and destroy the VM:
 
     $ vagrant destroy -f
 
-SSH
----
+Capistrano
+----------
 
-In order to SSH into the VM using the standard `ssh` command, add the following
-settings to your `~/.ssh/config` file. Afterwards, you can simply run `ssh
-practicingruby.local`.
+In order to deploy the Practicing Ruby app to a Vagrant VM that was configured
+with the Practicing Ruby cookbook, you have to add the following settings to
+your `~/.ssh/config` file (you might have to adapt `HostName` and `IdentityFile`
+to match your setup).
 
 ```
 Host practicingruby.local
@@ -92,6 +109,14 @@ Host practicingruby.local
     IdentityFile ~/.vagrant.d/insecure_private_key
     IdentitiesOnly yes
 ```
+
+Afterwards, you will be able to deploy the Rails app with Capistrano:
+
+    $ cd /path/to/practicing-ruby-web
+    $ bundle install
+    $ bundle exec cap vagrant deploy:setup deploy
+
+Also, you will be able to log into the VM via `ssh practicingruby.local`.
 
 License and Author
 ------------------

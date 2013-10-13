@@ -1,8 +1,5 @@
-* Document how to use Capistrano after provisioning.
 * Revise documentation of Vagrant, esp. requirements.
-
-Minor:
-
+* Document Chef attributes in metadata.rb.
 * Create and use dedicated postgresql user.
 * Add ChefSpec unit tests.
 * Consider using https://github.com/sj26/mailcatcher to handle emails.

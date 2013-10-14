@@ -58,43 +58,52 @@ Ideally, you should override these attributes as well:
 * `node["practicingruby"]["ssl"]["private_key"]`
 * `node['postgresql']['password']['postgres']` (for Chef Solo only)
 
-Vagrant
--------
+Usage
+-----
 
-With [Vagrant], you can spin up a virtual machine and run this cookbook inside
-the VM with Chef Solo. The setup requires to install **Vagrant 1.3.4** or higher
-from the [Vagrant downloads page]. You will also need the Vagrant plugin
-[vagrant-omnibus], which you can install this way:
+### Vagrant and Chef Solo
 
-    $ vagrant plugin install vagrant-omnibus
+By far the simplest way to get started with the Practicing Ruby cookbook is to
+use Vagrant and Chef Solo.
 
-Furthermore, [Berkshelf] is used to set up the cookbook and its dependencies
-prior to running Vagrant. Install the Berkshelf gem with `bundle install` and
-then run:
+Requirements:
+
+* [VirtualBox] 4.2 or higher - the virtualization provider that runs the Ubuntu
+  VM we're going to use
+* [Vagrant] 1.3.4 or higher - the command-line tool that makes it super easy to
+  spin up a VM and provision it with Chef (as defined in `Vagrantfile`)
+* [vagrant-omnibus] - a Vagrant plugin that installs Chef inside the VM; get it
+  with `vagrant plugin install vagrant-omnibus`
+* [Berkshelf] - a command-line tool to install all cookbooks listed in
+  `Berksfile` prior to running Vagrant; get the gem with `bundle install`
+
+When everything is in place, run the following two commands inside the
+Practicing Ruby cookbook. The first command will install all required Chef
+cookbooks to `vendor/cookbooks`, and the second one will run Vagrant to boot the
+VM and provision it using those cookbooks:
 
     $ bundle exec berks install --path vendor/cookbooks
+    $ vagrant up --provision
 
-When everything is in place, this command will boot and provision the VM as
-specified in the `Vagrantfile`:
+(Note that Vagrant will download the VM image if it's not installed yet.)
 
-    $ vagrant up
+In case the VM is already up, you can always run Chef again with:
 
-In case the VM is already up, you can run the provisioners again with:
-
+    $ bundle exec berks install --path vendor/cookbooks
     $ vagrant provision
 
 To SSH into the running VM:
 
     $ vagrant ssh
 
-Finally, this will stop and destroy the VM:
+Last but not least, here is how to stop and destroy the VM when you no longer
+need it or when you want to start from scratch:
 
     $ vagrant destroy -f
 
-Capistrano
-----------
+### Capistrano
 
-In order to deploy the Practicing Ruby app to a Vagrant VM that was configured
+In order to deploy the Practicing Ruby app to a Vagrant VM that was provisioned
 with the Practicing Ruby cookbook, you have to add the following settings to
 your `~/.ssh/config` file (you might have to adapt `HostName` and `IdentityFile`
 to match your setup).
@@ -148,7 +157,7 @@ Contributing
 
 
 [Berkshelf]: http://berkshelf.com/
-[Vagrant downloads page]: http://downloads.vagrantup.com/
 [Vagrant]: http://vagrantup.com
+[VirtualBox]: https://www.virtualbox.org/
 [practicingruby-web]: https://github.com/elm-city-craftworks/practicing-ruby-web
 [vagrant-omnibus]: https://github.com/schisamo/vagrant-omnibus

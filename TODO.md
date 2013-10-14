@@ -1,4 +1,3 @@
-* Revise documentation of Vagrant, esp. requirements.
 * Document Chef attributes in metadata.rb.
 * Create and use dedicated postgresql user.
 * Add ChefSpec unit tests.

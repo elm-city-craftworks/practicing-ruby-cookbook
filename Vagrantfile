@@ -1,7 +1,6 @@
 # vi: set ft=ruby :
 #
-# This Vagrantfile requires the "vagrant-omnibus" plugin to be installed. As
-# the used Vagrant box is a VirtualBox image, VirtualBox is needed as well.
+# See https://github.com/mlafeldt/practicingruby-cookbook#vagrant-and-chef-solo
 #
 
 Vagrant.configure("2") do |config|
@@ -16,9 +15,9 @@ Vagrant.configure("2") do |config|
   config.vm.network "private_network", :ip => "10.11.12.13"
 
   # Mirror specs of production system
-  config.vm.provider 'virtualbox' do |v|
-    v.customize ['modifyvm', :id, '--memory', 768]
-    v.customize ['modifyvm', :id, '--cpus', 1]
+  config.vm.provider "virtualbox" do |v|
+    v.customize ["modifyvm", :id, "--memory", 768]
+    v.customize ["modifyvm", :id, "--cpus", 1]
   end
 
   # Install Chef via platform-specific Omnibus package
@@ -32,8 +31,7 @@ Vagrant.configure("2") do |config|
     # Add recipes to be executed in given order
     chef.add_recipe "practicingruby::default"
 
-    # Pass custom JSON data to cookbooks that will be accessible via "node"
-    # variable at runtime
+    # Override some default node attributes
     chef.json = {
       "postgresql" => {
         "password" => {

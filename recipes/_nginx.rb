@@ -6,8 +6,9 @@
 #
 
 # Override default Nginx attributes
-node.set["nginx"]["worker_processes"]   = 4
-node.set["nginx"]["worker_connections"] = 768
+node.set["nginx"]["worker_processes"]     = 4
+node.set["nginx"]["worker_connections"]   = 768
+node.set["nginx"]["default_site_enabled"] = false
 
 # Install Nginx and set up nginx.conf
 include_recipe "nginx::default"
@@ -46,9 +47,4 @@ end
 # Enable practicingruby site
 nginx_site "practicingruby" do
   enable true
-end
-
-# Disable default site
-nginx_site "default" do
-  enable false
 end

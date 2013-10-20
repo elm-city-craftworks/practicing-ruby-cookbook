@@ -11,7 +11,23 @@ default["practicingruby"]["ruby"]["gem"]["options"] = "--no-ri --no-rdoc"
 
 # Databases to create
 default["practicingruby"]["databases"] = {
-  "practicing-ruby-production" => true,
+  "practicing-ruby-development" => true,
+  "practicing-ruby-test"        => true,
+  "practicing-ruby-production"  => true,
+}
+default["practicingruby"]["database"]["practicing-ruby-development"] = {
+  "environment" => "development",
+  "adapter"     => "postgresql",
+  "host"        => "localhost",
+  "username"    => "postgres",
+  "password"    => "practicingruby",
+}
+default["practicingruby"]["database"]["practicing-ruby-test"] = {
+  "environment" => "test",
+  "adapter"     => "postgresql",
+  "host"        => "localhost",
+  "username"    => "postgres",
+  "password"    => "practicingruby",
 }
 default["practicingruby"]["database"]["practicing-ruby-production"] = {
   "environment" => "production",

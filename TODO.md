@@ -1,6 +1,7 @@
 * Document how to register a new GitHub application to enable login via OAuth.
 * Document how to get started with the Rails app, e.g. create a new user/admin.
-* Document Chef attributes in metadata.rb.
+* Document Chef attributes in `metadata.rb`.
+* Consider using retries with `gem_package` as rubygems.org is unreliable.
 * Add ChefSpec unit tests.
 * Create and use dedicated postgresql user.
 * Consider using https://github.com/sj26/mailcatcher to handle emails.

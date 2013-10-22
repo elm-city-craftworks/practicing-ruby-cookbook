@@ -15,20 +15,22 @@ include_recipe "nginx::default"
 
 # Create SSL certificate file
 file node["practicingruby"]["ssl"]["certificate_file"] do
-  owner   "root"
-  group   "root"
-  mode    "0644"
-  content node["practicingruby"]["ssl"]["certificate"]
-  action  :create
+  owner    "root"
+  group    "root"
+  mode     "0644"
+  content  node["practicingruby"]["ssl"]["certificate"]
+  action   :create
+  notifies :reload, "service[nginx]"
 end
 
 # Create SSL private key file
 file node["practicingruby"]["ssl"]["private_key_file"] do
-  owner   "root"
-  group   "root"
-  mode    "0644"
-  content node["practicingruby"]["ssl"]["private_key"]
-  action  :create
+  owner    "root"
+  group    "root"
+  mode     "0644"
+  content  node["practicingruby"]["ssl"]["private_key"]
+  action   :create
+  notifies :reload, "service[nginx]"
 end
 
 # Create practicingruby site config

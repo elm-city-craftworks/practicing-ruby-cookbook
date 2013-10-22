@@ -39,6 +39,8 @@ template "#{node["nginx"]["dir"]}/sites-available/practicingruby" do
   mode   "0644"
   action :create
   variables(
+    :server_name         => [node["practicingruby"]["rails"]["host"],
+                             "www." + node["practicingruby"]["rails"]["host"]].join(" "),
     :ssl_certificate     => node["practicingruby"]["ssl"]["certificate_file"],
     :ssl_certificate_key => node["practicingruby"]["ssl"]["private_key_file"]
   )

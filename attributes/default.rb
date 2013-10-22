@@ -45,6 +45,7 @@ default["practicingruby"]["deploy"]["home_dir"]      = "/home/#{node["practicing
 
 # Rails app settings
 default["practicingruby"]["rails"]["secret_token"]              = "3f8e352c942d04b489795f5a9fe464c0"
+default["practicingruby"]["rails"]["host"]                      = "practicingruby.dev"
 default["practicingruby"]["rails"]["cachecooker"]["base_uri"]   = "http://practicingruby.dev"
 default["practicingruby"]["rails"]["cachecooker"]["password"]   = "supersecret"
 default["practicingruby"]["rails"]["cachecooker"]["realm"]      = "Practicing Ruby"
@@ -61,6 +62,7 @@ default["practicingruby"]["rails"]["omniauth"]["github_secret"] = "seekrit"
 default["practicingruby"]["rails"]["stripe"]["publishable_key"] = "PUBLISHABLE"
 default["practicingruby"]["rails"]["stripe"]["secret_key"]      = "SECRET"
 default["practicingruby"]["rails"]["stripe"]["webhook_path"]    = "/oh/yeah/stripe/webhooks"
+
 
 # Self-signed SSL certificate
 default["practicingruby"]["ssl"]["certificate_file"] = "#{node["nginx"]["dir"]}/practicingruby.crt"

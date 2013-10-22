@@ -1,6 +1,7 @@
 # vi: set ft=ruby :
 #
-# See https://github.com/mlafeldt/practicingruby-cookbook#vagrant-and-chef-solo
+# See documentation of Vagrant and Chef Solo at
+# https://github.com/elm-city-craftworks/practicing-ruby-cookbook#vagrant-and-chef-solo
 #
 
 Vagrant.configure("2") do |config|

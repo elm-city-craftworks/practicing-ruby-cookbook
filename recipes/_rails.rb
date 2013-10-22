@@ -25,6 +25,7 @@ end
 
 # Create config files for Rails app in shared directory
 %w(cache_cooker_settings.rb
+   domain_settings.rb
    database.yml
    mailchimp_settings.rb
    mixpanel.rb

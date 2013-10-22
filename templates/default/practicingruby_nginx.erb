@@ -1,6 +1,6 @@
 server {
   listen 80;
-  server_name practicingruby.com www.practicingruby.com;
+  server_name <%= @server_name %>;
   rewrite ^ https://$server_name$request_uri? permanent;
 }
 

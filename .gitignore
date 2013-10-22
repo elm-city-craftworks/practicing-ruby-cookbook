@@ -5,6 +5,7 @@
 /vendor/gems/
 
 # Berkshelf
+/.kitchen/
 /vendor/cookbooks/
 Berksfile.lock
 

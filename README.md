@@ -44,9 +44,15 @@ Recipes
 
 ### practicingruby::default
 
-The default recipe sets up everything required to deploy the Practicing Ruby app
-with Capistrano. To use it, you must at least override these node attributes
-with valid values:
+This recipe includes the `practicingruby::production` recipe described below.
+
+### practicingruby::production
+
+This recipe sets up a production environment with everything required to deploy
+the Practicing Ruby app via Capistrano.
+
+To use the recipe, you must at least override these node attributes with valid
+values:
 
 * `node["practicingruby"]["rails"]["omniauth"]["github_key"]`
 * `node["practicingruby"]["rails"]["omniauth"]["github_secret"]`

@@ -45,8 +45,8 @@ default["practicingruby"]["deploy"]["home_dir"]      = "/home/#{node["practicing
 
 # Rails app settings
 default["practicingruby"]["rails"]["secret_token"]              = "3f8e352c942d04b489795f5a9fe464c0"
-default["practicingruby"]["rails"]["host"]                      = "practicingruby.dev"
-default["practicingruby"]["rails"]["cachecooker"]["base_uri"]   = "http://practicingruby.dev"
+default["practicingruby"]["rails"]["host"]                      = "practicingruby.local"
+default["practicingruby"]["rails"]["cachecooker"]["base_uri"]   = "http://practicingruby.local"
 default["practicingruby"]["rails"]["cachecooker"]["password"]   = "supersecret"
 default["practicingruby"]["rails"]["cachecooker"]["realm"]      = "Practicing Ruby"
 default["practicingruby"]["rails"]["cachecooker"]["username"]   = "cachecooker"

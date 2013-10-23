@@ -6,65 +6,6 @@ can run the [Practicing Ruby Rails app][practicingruby-web]. It takes a bare
 Ubuntu system from zero to the point where Practicing Ruby can be deployed with
 Capistrano.
 
-Requirements
-------------
-
-### Chef
-
-The following Chef versions have been tested with this cookbook:
-
-* Chef 11.6.x (Omnibus install)
-
-### Platform
-
-The following platforms have been tested with this cookbook:
-
-* Ubuntu 12.04 LTS (Precise Pangolin)
-
-### Cookbooks
-
-External cookbook dependencies:
-
-* [apt](https://github.com/opscode-cookbooks/apt)
-* [chruby](https://github.com/Atalanta/chef-chruby)
-* [database](https://github.com/opscode-cookbooks/database)
-* [nginx](https://github.com/opscode-cookbooks/nginx)
-* [postgresql](https://github.com/opscode-cookbooks/postgresql)
-* [sudo](https://github.com/opscode-cookbooks/sudo)
-* [user](https://github.com/fnichol/chef-user)
-
-Attributes
-----------
-
-See `attributes/default.rb` for a list of all configurable Chef attributes and
-their default values.
-
-Recipes
--------
-
-### practicingruby::default
-
-This recipe includes the `practicingruby::production` recipe described below.
-
-### practicingruby::production
-
-This recipe sets up a production environment with everything required to deploy
-the Practicing Ruby app via Capistrano.
-
-To use the recipe, you must at least override these node attributes with valid
-values:
-
-* `node["practicingruby"]["rails"]["omniauth"]["github_key"]`
-* `node["practicingruby"]["rails"]["omniauth"]["github_secret"]`
-
-Ideally, you should override these attributes as well:
-
-* `node["practicingruby"]["deploy"]["ssh_keys"]`
-* `node["practicingruby"]["secret_token"]`
-* `node["practicingruby"]["ssl"]["certificate"]`
-* `node["practicingruby"]["ssl"]["private_key"]`
-* `node['postgresql']['password']['postgres']` (for Chef Solo only)
-
 Usage
 -----
 
@@ -88,7 +29,25 @@ Before you can use the cookbook with Vagrant, you have to set some custom Chef
 attributes in the file `chef.json`. For this, simply copy `chef.json.example` to
 `chef.json` and edit the latter accordingly. As those attributes will not end up
 in Git, you don't have to worry about storing sensitive information like secret
-keys. The "Recipes" section lists all attributes you have to provide.
+keys. At a minimum, you must at least override these node attributes with valid
+values:
+
+* `node["practicingruby"]["rails"]["omniauth"]["github_key"]`
+* `node["practicingruby"]["rails"]["omniauth"]["github_secret"]`
+
+If you haven't already set up Github keys for Practicing Ruby, 
+[create an application on Github](https://github.com/settings/applications) with
+`http://practicingruby.local` as the homepage and
+`http://practicingruby.local/auth/github/callback` as the callback URL.
+(NOTE: We'll be able to skip this hurdle as we get developer mode working in omniauth)
+
+Ideally, you should override these attributes as well, but they are optional:
+
+* `node["practicingruby"]["deploy"]["ssh_keys"]`
+* `node["practicingruby"]["secret_token"]`
+* `node["practicingruby"]["ssl"]["certificate"]`
+* `node["practicingruby"]["ssl"]["private_key"]`
+* `node['postgresql']['password']['postgres']` (for Chef Solo only)
 
 When everything is in place, run the following two commands inside the
 Practicing Ruby cookbook. The first command will install all required Chef
@@ -139,6 +98,53 @@ Afterwards, you will be able to deploy the Rails app with Capistrano:
     $ bundle exec cap vagrant deploy:setup deploy
 
 Also, you will be able to log into the VM via `ssh practicingruby.local`.
+
+
+
+Requirements
+------------
+
+### Chef
+
+The following Chef versions have been tested with this cookbook:
+
+* Chef 11.6.x (Omnibus install)
+
+### Platform
+
+The following platforms have been tested with this cookbook:
+
+* Ubuntu 12.04 LTS (Precise Pangolin)
+
+### Cookbooks
+
+External cookbook dependencies:
+
+* [apt](https://github.com/opscode-cookbooks/apt)
+* [chruby](https://github.com/Atalanta/chef-chruby)
+* [database](https://github.com/opscode-cookbooks/database)
+* [nginx](https://github.com/opscode-cookbooks/nginx)
+* [postgresql](https://github.com/opscode-cookbooks/postgresql)
+* [sudo](https://github.com/opscode-cookbooks/sudo)
+* [user](https://github.com/fnichol/chef-user)
+
+Attributes
+----------
+
+See `attributes/default.rb` for a list of all configurable Chef attributes and
+their default values.
+
+Recipes
+-------
+
+### practicingruby::default
+
+This recipe includes the `practicingruby::production` recipe described below.
+
+### practicingruby::production
+
+This recipe sets up a production environment with everything required to deploy
+the Practicing Ruby app via Capistrano.
 
 License and Author
 ------------------

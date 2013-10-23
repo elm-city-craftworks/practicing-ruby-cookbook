@@ -99,7 +99,13 @@ Afterwards, you will be able to deploy the Rails app with Capistrano:
 
 Also, you will be able to log into the VM via `ssh practicingruby.local`.
 
+To visit the site from your browser, you'll probably also need to add the following
+entries to your `/etc/hosts` file: 
 
+```
+10.11.12.13 practicingruby.local
+10.11.12.13 www.practicingruby.local
+```
 
 Requirements
 ------------

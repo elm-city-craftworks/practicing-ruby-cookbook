@@ -9,6 +9,9 @@ Capistrano.
 Usage
 -----
 
+**FIXME: Make it easier to scan the installation instructions by breaking
+commands out into their own lines and numbering the steps.**
+
 ### Vagrant and Chef Solo
 
 By far the simplest way to get started with the Practicing Ruby cookbook is to

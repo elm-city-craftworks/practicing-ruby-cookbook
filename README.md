@@ -60,6 +60,7 @@ values:
 Ideally, you should override these attributes as well:
 
 * `node["practicingruby"]["deploy"]["ssh_keys"]`
+* `node["practicingruby"]["secret_token"]`
 * `node["practicingruby"]["ssl"]["certificate"]`
 * `node["practicingruby"]["ssl"]["private_key"]`
 * `node['postgresql']['password']['postgres']` (for Chef Solo only)

@@ -11,3 +11,4 @@ Berksfile.lock
 
 # Vagrant
 /.vagrant/
+chef.json

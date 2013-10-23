@@ -83,6 +83,12 @@ Requirements:
 * [Berkshelf] - a command-line tool to install all cookbooks listed in
   `Berksfile` prior to running Vagrant; get the gem with `bundle install`
 
+Before you can use the cookbook with Vagrant, you have to set some custom Chef
+attributes in the file `chef.json`. For this, simply copy `chef.json.example` to
+`chef.json` and edit the latter accordingly. As those attributes will not end up
+in Git, you don't have to worry about storing sensitive information like secret
+keys. The "Recipes" section lists all attributes you have to provide.
+
 When everything is in place, run the following two commands inside the
 Practicing Ruby cookbook. The first command will install all required Chef
 cookbooks to `vendor/cookbooks`, and the second one will run Vagrant to boot the

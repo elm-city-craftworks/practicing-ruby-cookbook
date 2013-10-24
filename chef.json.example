@@ -12,8 +12,8 @@
     },
     "rails": {
       "omniauth": {
-        "github_key": "your-client-id",
-        "github_secret": "your-client-secret"
+        "github_key": "ADD-YOUR-CLIENT-ID-HERE",
+        "github_secret": "ADD-YOUR-CLIENT-SECRET-HERE"
       }
     }
   },

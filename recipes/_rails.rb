@@ -23,16 +23,7 @@ directory shared_dir do
   action :create
 end
 
-# Create config files for Rails app in shared directory
-%w(cache_cooker_settings.rb
-   domain_settings.rb
-   database.yml
-   mailchimp_settings.rb
-   mixpanel.rb
-   omniauth.rb
-   secret_token.rb
-   stripe.rb
-).each do |file|
+%w[.env database.yml].each do |file|
   template File.join(shared_dir, file) do
     owner  node["practicingruby"]["deploy"]["username"]
     group  node["practicingruby"]["deploy"]["username"]

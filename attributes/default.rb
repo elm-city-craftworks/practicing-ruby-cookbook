@@ -42,6 +42,8 @@ default["practicingruby"]["database"]["practicing-ruby-production"] = {
   "password"    => "practicingruby",
 }
 
+# Deployment user for Capistrano
+
 default["practicingruby"]["deploy"]["username"]      = "deploy"
 default["practicingruby"]["deploy"]["ssh_keys"]      = []
 default["practicingruby"]["deploy"]["sudo_commands"] = ["/usr/local/bin/god"]

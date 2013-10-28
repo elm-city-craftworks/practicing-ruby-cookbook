@@ -50,12 +50,6 @@ default["practicingruby"]["deploy"]["sudo_commands"] = ["/usr/local/bin/god"]
 default["practicingruby"]["deploy"]["home_dir"]      = "/home/#{node["practicingruby"]["deploy"]["username"]}"
 
 # Rails app settings
-
-default["practicingruby"]["rails"]["auth"]["mode"]              = "developer"
-
-default["practicingruby"]["rails"]["smtp"]["address"]           = "localhost"
-default["practicingruby"]["rails"]["smtp"]["port"]              = 1025
-
 default["practicingruby"]["rails"]["secret_token"]              = "3f8e352c942d04b489795f5a9fe464c0"
 default["practicingruby"]["rails"]["host"]                      = "practicingruby.local"
 

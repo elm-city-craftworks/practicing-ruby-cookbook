@@ -3,14 +3,12 @@
 # Attributes:: default
 #
 
-ruby = default["practicingruby"]["ruby"]
-
 # Ruby version to install
-ruby["version"]        = "2.0.0-p247"
+default["practicingruby"]["ruby"]["version"]        = "2.0.0-p247"
 
 # Defaults for gem_package resource
-ruby["gem"]["binary"]  = "/opt/rubies/#{node["practicingruby"]["ruby"]["version"]}/bin/gem"
-ruby["gem"]["options"] = "--no-ri --no-rdoc"
+default["practicingruby"]["ruby"]["gem"]["binary"]  = "/opt/rubies/#{node["practicingruby"]["ruby"]["version"]}/bin/gem"
+default["practicingruby"]["ruby"]["gem"]["options"] = "--no-ri --no-rdoc"
 
 # Databases to create
 
@@ -20,9 +18,7 @@ default["practicingruby"]["databases"] = {
   "practicing-ruby-production"  => true,
 }
 
-db = default["practicingruby"]["database"]
-
-db["practicing-ruby-development"] = {
+default["practicingruby"]["database"]["practicing-ruby-development"] = {
   "environment" => "development",
   "adapter"     => "postgresql",
   "host"        => "localhost",
@@ -30,7 +26,7 @@ db["practicing-ruby-development"] = {
   "password"    => "practicingruby",
 }
 
-db["practicing-ruby-test"] = {
+default["practicingruby"]["database"]["practicing-ruby-test"] = {
   "environment" => "test",
   "adapter"     => "postgresql",
   "host"        => "localhost",
@@ -38,7 +34,7 @@ db["practicing-ruby-test"] = {
   "password"    => "practicingruby",
 }
 
-db["practicing-ruby-production"] = {
+default["practicingruby"]["database"]["practicing-ruby-production"] = {
   "environment" => "production",
   "adapter"     => "postgresql",
   "host"        => "localhost",
@@ -46,39 +42,38 @@ db["practicing-ruby-production"] = {
   "password"    => "practicingruby",
 }
 
-# Deployment user for Capistrano
-deploy = default["practicingruby"]["deploy"]
-
-deploy["username"]      = "deploy"
-deploy["ssh_keys"]      = []
-deploy["sudo_commands"] = ["/usr/local/bin/god"]
-deploy["home_dir"]      = "/home/#{node["practicingruby"]["deploy"]["username"]}"
+default["practicingruby"]["deploy"]["username"]      = "deploy"
+default["practicingruby"]["deploy"]["ssh_keys"]      = []
+default["practicingruby"]["deploy"]["sudo_commands"] = ["/usr/local/bin/god"]
+default["practicingruby"]["deploy"]["home_dir"]      = "/home/#{node["practicingruby"]["deploy"]["username"]}"
 
 # Rails app settings
 
-app = default["practicingruby"]["rails"]
+default["practicingruby"]["rails"]["auth"]["mode"]              = "developer"
 
-app["auth"]["mode"]                 = "developer"
+default["practicingruby"]["rails"]["smtp"]["address"]           = "localhost"
+default["practicingruby"]["rails"]["smtp"]["port"]              = 1025
 
-app["smtp"]["address"]              = "localhost"
-app["smtp"]["port"]                 = 1025
+default["practicingruby"]["rails"]["secret_token"]              = "3f8e352c942d04b489795f5a9fe464c0"
+default["practicingruby"]["rails"]["host"]                      = "practicingruby.local"
 
-app["secret_token"]              = "3f8e352c942d04b489795f5a9fe464c0"
-app["host"]                      = "practicingruby.local"
-app["cachecooker"]["base_uri"]   = "http://practicingruby.local"
-app["cachecooker"]["password"]   = "supersecret"
-app["cachecooker"]["realm"]      = "Practicing Ruby"
-app["cachecooker"]["username"]   = "cachecooker"
-app["mailchimp"]["api_key"]      = "YOUR-API-KEY"
-app["mailchimp"]["list_id"]      = "YOUR-LIST-ID"
-app["mailchimp"]["sender_email"] = "Your Sender Email"
-app["mailchimp"]["sender_name"]  = "Your Sender Name"
-app["mailchimp"]["testers"]      = ["your@email.com"]
-app["mailchimp"]["webhook_key"]  = "Your/webhook/key"
-app["mixpanel"]["api_token"]     = "..."
-app["stripe"]["publishable_key"] = "PUBLISHABLE"
-app["stripe"]["secret_key"]      = "SECRET"
-app["stripe"]["webhook_path"]    = "/oh/yeah/stripe/webhooks"
+default["practicingruby"]["rails"]["cachecooker"]["base_uri"]   = "http://practicingruby.local"
+default["practicingruby"]["rails"]["cachecooker"]["password"]   = "supersecret"
+default["practicingruby"]["rails"]["cachecooker"]["realm"]      = "Practicing Ruby"
+default["practicingruby"]["rails"]["cachecooker"]["username"]   = "cachecooker"
+
+default["practicingruby"]["rails"]["mailchimp"]["api_key"]      = "YOUR-API-KEY"
+default["practicingruby"]["rails"]["mailchimp"]["list_id"]      = "YOUR-LIST-ID"
+default["practicingruby"]["rails"]["mailchimp"]["sender_email"] = "Your Sender Email"
+default["practicingruby"]["rails"]["mailchimp"]["sender_name"]  = "Your Sender Name"
+default["practicingruby"]["rails"]["mailchimp"]["testers"]      = ["your@email.com"]
+default["practicingruby"]["rails"]["mailchimp"]["webhook_key"]  = "Your/webhook/key"
+
+default["practicingruby"]["rails"]["mixpanel"]["api_token"]     = "..."
+
+default["practicingruby"]["rails"]["stripe"]["publishable_key"] = "PUBLISHABLE"
+default["practicingruby"]["rails"]["stripe"]["secret_key"]      = "SECRET"
+default["practicingruby"]["rails"]["stripe"]["webhook_path"]    = "/oh/yeah/stripe/webhooks"
 
 
 # Self-signed SSL certificate

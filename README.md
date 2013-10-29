@@ -16,6 +16,10 @@ To use this cookbook, you need the following software:
 * [vagrant-omnibus] - installable via `vagrant plugin install vagrant-omnibus`
 * [Berkshelf] - installable via `bundle install`
 
+When you provision a VM using this cookbook, Chef will be installed for you 
+via `vagrant-omnibus`, and if necessary an Ubuntu Linux base system image will 
+be downloaded automatically. See the project's `Vagrantfile` for exact versions
+used.
 
 ## External Cookbooks
 

@@ -30,8 +30,8 @@ Vagrant.configure("2") do |config|
     chef.cookbooks_path = "vendor/cookbooks"
 
     # Load node attributes and run list from a JSON file
-    json_file = "chef.json"
-    abort "error: #{json_file} not found!" unless File.exist?(json_file)
+
+    json_file = File.exist?("chef.json") ? "chef.json" : "chef.json.example"
     chef.json = JSON.parse(IO.read(json_file))
 
     # Set Chef log level

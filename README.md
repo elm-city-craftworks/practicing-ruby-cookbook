@@ -95,6 +95,10 @@ entries to your `/etc/hosts` file:
 10.11.12.13 www.practicingruby.local
 ```
 
+To populate the database with a few user accounts and some articles, you can also run:
+
+    $ cap vagrant seed
+
 ## License and Authorship
 
 Originally written in October 2013 by Mathias Lafeldt (<mathias.lafeldt@gmail.com>),

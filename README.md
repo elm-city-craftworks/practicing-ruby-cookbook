@@ -6,61 +6,46 @@ can run the [Practicing Ruby Rails app][practicingruby-web]. It takes a bare
 Ubuntu system from zero to the point where Practicing Ruby can be deployed with
 Capistrano.
 
-Usage
------
 
-**FIXME: Make it easier to scan the installation instructions by breaking
-commands out into their own lines and numbering the steps.**
+## Requirements
 
-### Vagrant and Chef Solo
+To use this cookbook, you need the following software:
 
-By far the simplest way to get started with the Practicing Ruby cookbook is to
-use Vagrant and Chef Solo.
+* [VirtualBox] - Version 4.2 or higher
+* [Vagrant] - Version 1.3.4 or higher
+* [vagrant-omnibus] - installable via `vagrant plugin install vagrant-omnibus`
+* [Berkshelf] - installable via `bundle install`
 
-Requirements:
 
-* [VirtualBox] 4.2 or higher - the virtualization provider that runs the Ubuntu
-  VM we're going to use
-* [Vagrant] 1.3.4 or higher - the command-line tool that makes it super easy to
-  spin up a VM and provision it with Chef (as defined in `Vagrantfile`)
-* [vagrant-omnibus] - a Vagrant plugin that installs Chef inside the VM; get it
-  with `vagrant plugin install vagrant-omnibus`
-* [Berkshelf] - a command-line tool to install all cookbooks listed in
-  `Berksfile` prior to running Vagrant; get the gem with `bundle install`
+## External Cookbooks
 
-Before you can use the cookbook with Vagrant, you have to set some custom Chef
-attributes in the file `chef.json`. For this, simply copy `chef.json.example` to
-`chef.json` and edit the latter accordingly. As those attributes will not end up
-in Git, you don't have to worry about storing sensitive information like secret
-keys. At a minimum, you must at least override these node attributes with valid
-values:
+Our recipes are built on top of the following external cookbooks: 
 
-* `node["practicingruby"]["rails"]["omniauth"]["github_key"]`
-* `node["practicingruby"]["rails"]["omniauth"]["github_secret"]`
+* [apt](https://github.com/opscode-cookbooks/apt)
+* [chruby](https://github.com/Atalanta/chef-chruby)
+* [database](https://github.com/opscode-cookbooks/database)
+* [nginx](https://github.com/opscode-cookbooks/nginx)
+* [postgresql](https://github.com/opscode-cookbooks/postgresql)
+* [sudo](https://github.com/opscode-cookbooks/sudo)
+* [user](https://github.com/fnichol/chef-user)
 
-If you haven't already set up Github keys for Practicing Ruby, 
-[create an application on Github](https://github.com/settings/applications) with
-`http://practicingruby.local` as the homepage and
-`http://practicingruby.local/auth/github/callback` as the callback URL.
-(NOTE: We'll be able to skip this hurdle as we get developer mode working in omniauth)
+All of these will be automatically installed by **Berkshelf**, so there is no need to set them up manually.
 
-Ideally, you should override these attributes as well, but they are optional:
+## Configuration
 
-* `node["practicingruby"]["deploy"]["ssh_keys"]`
-* `node["practicingruby"]["secret_token"]`
-* `node["practicingruby"]["ssl"]["certificate"]`
-* `node["practicingruby"]["ssl"]["private_key"]`
-* `node['postgresql']['password']['postgres']` (for Chef Solo only)
+Most of the web application's features will work without modifying any
+settings, but a few features do need to have valid API
+keys or other bits of configuration data to be set in order to run. To see 
+what options are configurable, see `attributes/default.rb`. To override them, 
+copy `chef.json.example` to `chef.json` and edit the latter accordingly. Keep in 
+mind that for many use cases, you may not need to override any settings at all.
 
-When everything is in place, run the following two commands inside the
-Practicing Ruby cookbook. The first command will install all required Chef
-cookbooks to `vendor/cookbooks`, and the second one will run Vagrant to boot the
-VM and provision it using those cookbooks:
+## Provisioning
+
+Run the following two commands inside the Practicing Ruby cookbook to create a vagrant box and boot it up:
 
     $ bundle exec berks install --path vendor/cookbooks
     $ vagrant up --provision
-
-(Note that Vagrant will download the VM image if it's not installed yet.)
 
 In case the VM is already up, you can always run Chef again with:
 
@@ -76,7 +61,7 @@ need it or when you want to start from scratch:
 
     $ vagrant destroy -f
 
-### Capistrano
+## Deploying
 
 In order to deploy the Practicing Ruby app to a Vagrant VM that was provisioned
 with the Practicing Ruby cookbook, you have to add the following settings to
@@ -110,57 +95,13 @@ entries to your `/etc/hosts` file:
 10.11.12.13 www.practicingruby.local
 ```
 
-Requirements
-------------
+## License and Authorship
 
-### Chef
-
-The following Chef versions have been tested with this cookbook:
-
-* Chef 11.6.x (Omnibus install)
-
-### Platform
-
-The following platforms have been tested with this cookbook:
-
-* Ubuntu 12.04 LTS (Precise Pangolin)
-
-### Cookbooks
-
-External cookbook dependencies:
-
-* [apt](https://github.com/opscode-cookbooks/apt)
-* [chruby](https://github.com/Atalanta/chef-chruby)
-* [database](https://github.com/opscode-cookbooks/database)
-* [nginx](https://github.com/opscode-cookbooks/nginx)
-* [postgresql](https://github.com/opscode-cookbooks/postgresql)
-* [sudo](https://github.com/opscode-cookbooks/sudo)
-* [user](https://github.com/fnichol/chef-user)
-
-Attributes
-----------
-
-See `attributes/default.rb` for a list of all configurable Chef attributes and
-their default values.
-
-Recipes
--------
-
-### practicingruby::default
-
-This recipe includes the `practicingruby::production` recipe described below.
-
-### practicingruby::production
-
-This recipe sets up a production environment with everything required to deploy
-the Practicing Ruby app via Capistrano.
-
-License and Author
-------------------
-
-Author:: Mathias Lafeldt (<mathias.lafeldt@gmail.com>)
-
-Copyright:: 2013, Mathias Lafeldt
+Originally written in October 2013 by Mathias Lafeldt (<mathias.lafeldt@gmail.com>),
+with contributions from the community. Individual contributors retain their copyright,
+but agree to release the code under the same license as the project itself.
+For a complete list of contributor, see the git logs or visit:
+https://github.com/elm-city-craftworks/practicing-ruby-cookbook/graphs/contributors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -174,14 +115,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-Contributing
-------------
+## Contributing
 
-1. Fork it
+We welcome contributed improvements and bug fixes via the usual workflow:
+
+1. Fork this repository
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+5. Create a new pull request
 
 
 [Berkshelf]: http://berkshelf.com/

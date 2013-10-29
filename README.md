@@ -37,8 +37,8 @@ Most of the web application's features will work without modifying any
 settings, but a few features do need to have valid API
 keys or other bits of configuration data to be set in order to run. To see 
 what options are configurable, see `attributes/default.rb`. To override them, 
-copy `chef.json.example` to `chef.json` and edit the latter accordingly. Keep in 
-mind that for many use cases, you may not need to override any settings at all.
+copy `chef.json.example` to `chef.json` and edit the latter accordingly. *Keep in 
+mind that for many use cases, you may not need to override any settings at all.*
 
 ## Provisioning
 

@@ -1,12 +1,16 @@
 #!/bin/bash
-#
-# god       Startup script for god (http://god.rubyforge.org)
-#
-# chkconfig: - 85 15
-# description: God is an easy to configure, easy to extend monitoring \
-#              framework written in Ruby.
-#
- 
+### BEGIN INIT INFO
+# Provides:          god
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Process monitoring with God
+# Description:       God is an easy to configure, easy to extend monitoring framework written in Ruby.
+### END INIT INFO
+
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 CONF_DIR=/etc/god
 GOD_BIN=god
 RUBY_BIN="chruby-exec <%= @ruby_version %> --"

@@ -83,7 +83,7 @@ Afterwards, you will be able to deploy the Rails app with Capistrano:
 
     $ cd /path/to/practicing-ruby-web
     $ bundle install
-    $ bundle exec cap vagrant deploy:setup deploy
+    $ bundle exec cap vagrant deploy:setup deploy seed
 
 Also, you will be able to log into the VM via `ssh practicingruby.local`.
 
@@ -95,9 +95,8 @@ entries to your `/etc/hosts` file:
 10.11.12.13 www.practicingruby.local
 ```
 
-To populate the database with a few user accounts and some articles, you can also run:
-
-    $ cap vagrant seed
+A few users and some articles will already be populated in the DB. Try logging in as `admin` for an admistrator
+account, and see the [full seed file][pr-seeds] for all created users.
 
 ## License and Authorship
 
@@ -135,3 +134,4 @@ We welcome contributed improvements and bug fixes via the usual workflow:
 [VirtualBox]: https://www.virtualbox.org/
 [practicingruby-web]: https://github.com/elm-city-craftworks/practicing-ruby-web
 [vagrant-omnibus]: https://github.com/schisamo/vagrant-omnibus
+[pr-seeds]: https://github.com/elm-city-craftworks/practicing-ruby-web/blob/master/db/seeds.rb

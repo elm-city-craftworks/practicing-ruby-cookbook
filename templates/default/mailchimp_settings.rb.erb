@@ -1,8 +1,0 @@
-MailChimpSettings = {
-  :list_id      => "<%= @rails["mailchimp"]["list_id"] %>",
-  :api_key      => "<%= @rails["mailchimp"]["api_key"] %>",
-  :testers      => [<%= @rails["mailchimp"]["testers"].map(&:inspect).join(", ") %>],
-  :sender_name  => "<%= @rails["mailchimp"]["sender_name"] %>",
-  :sender_email => "<%= @rails["mailchimp"]["sender_email"] %>",
-  :webhook_key  => "<%= @rails["mailchimp"]["webhook_key"] %>"
-}

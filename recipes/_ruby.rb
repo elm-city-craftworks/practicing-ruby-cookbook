@@ -8,7 +8,8 @@
 # Install ruby-build
 include_recipe "ruby_build"
 
-# Build and install Ruby version using ruby-build
+# Build and install Ruby version using ruby-build. By installing it to
+# /usr/local, we ensure it is the new global Ruby version from now on.
 ruby_build_ruby node["practicingruby"]["ruby"]["version"] do
   prefix_path "/usr/local"
   action      :install

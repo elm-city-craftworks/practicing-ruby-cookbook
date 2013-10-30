@@ -12,7 +12,7 @@ node.set["chruby"]["rubies"] = {
 }
 node.set["chruby"]["default"] = node["practicingruby"]["ruby"]["version"]
 
-# Build and install Ruby versions using chruby und ruby-build
+# Build and install Ruby versions using chruby and ruby-build
 include_recipe "chruby::system"
 
 # Update to the latest RubyGems version

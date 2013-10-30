@@ -42,7 +42,7 @@ end
 
 # Create practicingruby site config
 template "#{node["nginx"]["dir"]}/sites-available/practicingruby" do
-  source "practicingruby_nginx.erb"
+  source "nginx_site.erb"
   owner  "root"
   group  "root"
   mode   "0644"

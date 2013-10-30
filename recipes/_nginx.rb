@@ -13,24 +13,31 @@ node.set["nginx"]["default_site_enabled"] = false
 # Install Nginx and set up nginx.conf
 include_recipe "nginx::default"
 
-# Create SSL certificate file
-file node["practicingruby"]["ssl"]["certificate_file"] do
-  owner    "root"
-  group    "root"
-  mode     "0644"
-  content  node["practicingruby"]["ssl"]["certificate"]
-  action   :create
-  notifies :reload, "service[nginx]"
+# Create directory to store SSL files
+ssl_dir = File.join(node["nginx"]["dir"], "ssl")
+directory ssl_dir do
+  owner  "root"
+  group  "root"
+  mode   "0600"
+  action :create
 end
 
-# Create SSL private key file
-file node["practicingruby"]["ssl"]["private_key_file"] do
-  owner    "root"
-  group    "root"
-  mode     "0644"
-  content  node["practicingruby"]["ssl"]["private_key"]
-  action   :create
+# Generate SSL private key and use it to issue self-signed certificate for
+# currently configured domain name
+guard_file = File.join(ssl_dir, node["practicingruby"]["rails"]["host"] + ".crt")
+bash "generate-ssl-files" do
+  user  "root"
+  cwd   ssl_dir
+  flags "-e"
+  code <<-EOS
+    DOMAIN=#{node["practicingruby"]["rails"]["host"]}
+    openssl genrsa -out $DOMAIN.key 4096
+    openssl req -new -batch -subj "/CN=$DOMAIN" -key $DOMAIN.key -out $DOMAIN.csr
+    openssl x509 -req -days 365 -in $DOMAIN.csr -signkey $DOMAIN.key -out $DOMAIN.crt
+    rm $DOMAIN.csr
+  EOS
   notifies :reload, "service[nginx]"
+  not_if { ::File.exists?(guard_file) }
 end
 
 # Create practicingruby site config
@@ -41,10 +48,7 @@ template "#{node["nginx"]["dir"]}/sites-available/practicingruby" do
   mode   "0644"
   action :create
   variables(
-    :server_name         => [node["practicingruby"]["rails"]["host"],
-                             "www." + node["practicingruby"]["rails"]["host"]].join(" "),
-    :ssl_certificate     => node["practicingruby"]["ssl"]["certificate_file"],
-    :ssl_certificate_key => node["practicingruby"]["ssl"]["private_key_file"]
+    :domain_name => node["practicingruby"]["rails"]["host"]
   )
 end
 

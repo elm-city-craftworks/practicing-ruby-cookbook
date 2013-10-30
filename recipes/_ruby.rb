@@ -29,6 +29,7 @@ end
 execute "update-rubygems" do
   command "gem update --system"
   action  :run
+  not_if  "gem list | grep -q rubygems-update"
 end
 
 # Install Bundler

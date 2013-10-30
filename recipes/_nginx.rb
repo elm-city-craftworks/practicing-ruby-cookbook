@@ -24,20 +24,20 @@ end
 
 # Generate SSL private key and use it to issue self-signed certificate for
 # currently configured domain name
-guard_file = File.join(ssl_dir, node["practicingruby"]["rails"]["host"] + ".crt")
+domain_name = node["practicingruby"]["rails"]["host"]
 bash "generate-ssl-files" do
   user  "root"
   cwd   ssl_dir
   flags "-e"
   code <<-EOS
-    DOMAIN=#{node["practicingruby"]["rails"]["host"]}
+    DOMAIN=#{domain_name}
     openssl genrsa -out $DOMAIN.key 4096
     openssl req -new -batch -subj "/CN=$DOMAIN" -key $DOMAIN.key -out $DOMAIN.csr
     openssl x509 -req -days 365 -in $DOMAIN.csr -signkey $DOMAIN.key -out $DOMAIN.crt
     rm $DOMAIN.csr
   EOS
   notifies :reload, "service[nginx]"
-  not_if { ::File.exists?(guard_file) }
+  not_if { ::File.exists?(File.join(ssl_dir, domain_name + ".crt")) }
 end
 
 # Create practicingruby site config
@@ -48,7 +48,7 @@ template "#{node["nginx"]["dir"]}/sites-available/practicingruby" do
   mode   "0644"
   action :create
   variables(
-    :domain_name => node["practicingruby"]["rails"]["host"]
+    :domain_name => domain_name
   )
 end
 

@@ -22,7 +22,8 @@ directory ssl_dir do
   action :create
 end
 
-# Generate SSL private key and certificate for domain name
+# Generate SSL private key and use it to issue self-signed certificate for
+# currently configured domain name
 guard_file = File.join(ssl_dir, node["practicingruby"]["rails"]["host"] + ".crt")
 bash "generate-ssl-files" do
   user  "root"

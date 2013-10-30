@@ -17,7 +17,10 @@ node.set["chruby"]["default"] = ruby_version
 # Build and install Ruby version using chruby and ruby-build
 include_recipe "chruby::system"
 
-# Prepend our Ruby version to PATH
+# The chruby cookbook installs /etc/profile.d/chruby.sh which sets up the Ruby
+# environment. Unfortunately, that file will only be sourced after the next
+# login, causing the first converge to fail. We can fix this by prepending our
+# Ruby version to PATH.
 ruby_block "add-ruby-to-path" do
   block do
     ENV["PATH"] = "/opt/rubies/#{ruby_version}/bin:#{ENV["PATH"]}"

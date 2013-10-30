@@ -12,6 +12,7 @@ supports "ubuntu", ">= 12.04"
 
 depends "apt"
 depends "database"
+depends "mailcatcher"
 depends "nginx"
 depends "postgresql"
 depends "ruby_build"

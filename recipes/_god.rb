@@ -9,18 +9,7 @@
 include_recipe "practicingruby::_ruby"
 
 # Install god gem
-gem_package "god" do
-  gem_binary node["practicingruby"]["ruby"]["gem"]["binary"]
-  options    node["practicingruby"]["ruby"]["gem"]["options"]
-  action     :install
-end
-
-# Add god to default PATH for sudo and startup script
-link "/usr/local/bin/god" do
-  to        "/opt/rubies/#{node["practicingruby"]["ruby"]["version"]}/bin/god"
-  link_type :symbolic
-  action    :create
-end
+gem_package "god"
 
 # Create config directory
 directory "/etc/god" do

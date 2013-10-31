@@ -11,9 +11,9 @@ recipe            "practicingruby::production", "Sets up production environment 
 supports "ubuntu", ">= 12.04"
 
 depends "apt"
-depends "chruby"
 depends "database"
 depends "nginx"
 depends "postgresql"
+depends "ruby_build"
 depends "sudo"
 depends "user"

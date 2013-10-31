@@ -5,25 +5,22 @@
 # Installs Ruby and Bundler
 #
 
-# Override default chruby attributes
-node.set["chruby"]["rubies"] = {
-  "1.9.3-p392" => false,
-  node["practicingruby"]["ruby"]["version"] => true
-}
-node.set["chruby"]["default"] = node["practicingruby"]["ruby"]["version"]
+# Install ruby-build
+include_recipe "ruby_build"
 
-# Build and install Ruby versions using chruby and ruby-build
-include_recipe "chruby::system"
+# Build and install Ruby version using ruby-build. By installing it to
+# /usr/local, we ensure it is the new global Ruby version from now on.
+ruby_build_ruby node["practicingruby"]["ruby"]["version"] do
+  prefix_path "/usr/local"
+  action      :install
+end
 
 # Update to the latest RubyGems version
 execute "update-rubygems" do
-  command "#{node["practicingruby"]["ruby"]["gem"]["binary"]} update --system"
-  action :run
+  command "gem update --system"
+  action  :run
+  not_if  "gem list | grep -q rubygems-update"
 end
 
 # Install Bundler
-gem_package "bundler" do
-  gem_binary node["practicingruby"]["ruby"]["gem"]["binary"]
-  options    node["practicingruby"]["ruby"]["gem"]["options"]
-  action     :install
-end
+gem_package "bundler"

@@ -26,10 +26,10 @@ The following platforms have been tested with this cookbook:
 External cookbook dependencies:
 
 * [apt](https://github.com/opscode-cookbooks/apt)
-* [chruby](https://github.com/Atalanta/chef-chruby)
 * [database](https://github.com/opscode-cookbooks/database)
 * [nginx](https://github.com/opscode-cookbooks/nginx)
 * [postgresql](https://github.com/opscode-cookbooks/postgresql)
+* [ruby_build](https://github.com/fnichol/chef-ruby_build)
 * [sudo](https://github.com/opscode-cookbooks/sudo)
 * [user](https://github.com/fnichol/chef-user)
 

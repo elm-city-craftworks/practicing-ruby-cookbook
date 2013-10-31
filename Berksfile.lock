@@ -1,0 +1,63 @@
+{
+  "sources": {
+    "practicingruby": {
+      "path": "."
+    },
+    "mailcatcher": {
+      "locked_version": "0.1.0",
+      "git": "git://github.com/andruby/mailcatcher.git",
+      "ref": "295ecf4223b1fde4bb84ce1ac9f79fcc4c96b7f3"
+    },
+    "apt": {
+      "locked_version": "2.3.0"
+    },
+    "database": {
+      "locked_version": "1.5.2"
+    },
+    "mysql": {
+      "locked_version": "3.0.12"
+    },
+    "openssl": {
+      "locked_version": "1.1.0"
+    },
+    "build-essential": {
+      "locked_version": "1.4.2"
+    },
+    "postgresql": {
+      "locked_version": "3.1.0"
+    },
+    "aws": {
+      "locked_version": "1.0.0"
+    },
+    "xfs": {
+      "locked_version": "1.1.0"
+    },
+    "nginx": {
+      "locked_version": "2.0.0"
+    },
+    "bluepill": {
+      "locked_version": "2.3.0"
+    },
+    "rsyslog": {
+      "locked_version": "1.9.0"
+    },
+    "ohai": {
+      "locked_version": "1.1.12"
+    },
+    "runit": {
+      "locked_version": "1.3.0"
+    },
+    "yum": {
+      "locked_version": "2.4.0"
+    },
+    "ruby_build": {
+      "locked_version": "0.8.0"
+    },
+    "sudo": {
+      "locked_version": "2.2.2"
+    },
+    "user": {
+      "locked_version": "0.3.0"
+    }
+  }
+}

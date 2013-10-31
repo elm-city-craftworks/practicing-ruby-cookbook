@@ -8,3 +8,6 @@
 
 # Tell Berkshelf to read cookbook dependencies from metadata.rb
 metadata
+
+# Get mailcatcher cookbook from GitHub
+cookbook "mailcatcher", :github => "andruby/mailcatcher"

@@ -1,3 +1,14 @@
+1.0.3 (Oct 31 2013)
+-------------------
+
+* Use ruby-build without chruby as we don't need a version manager. This removes
+  a lot of complexity from our Ruby setup.
+* Install MailCatcher.
+* Add guard to only update RubyGems once.
+* Nginx recipe: rename `practicingruby_nginx.erb` to `nginx_site.erb`, use local
+  variable for domain name.
+* Add domain name to `chef.json.example`.
+
 1.0.2 (Oct 30 2013)
 -------------------
 

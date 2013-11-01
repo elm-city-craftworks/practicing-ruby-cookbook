@@ -6,40 +6,14 @@
 # Ruby version to install
 default["practicingruby"]["ruby"]["version"] = "2.0.0-p247"
 
-# Databases to create
-
-default["practicingruby"]["databases"] = {
-  "practicing-ruby-development" => true,
-  "practicing-ruby-test"        => true,
-  "practicing-ruby-production"  => true,
-}
-
-default["practicingruby"]["database"]["practicing-ruby-development"] = {
-  "environment" => "development",
-  "adapter"     => "postgresql",
-  "host"        => "localhost",
-  "username"    => "postgres",
-  "password"    => "practicingruby",
-}
-
-default["practicingruby"]["database"]["practicing-ruby-test"] = {
-  "environment" => "test",
-  "adapter"     => "postgresql",
-  "host"        => "localhost",
-  "username"    => "postgres",
-  "password"    => "practicingruby",
-}
-
-default["practicingruby"]["database"]["practicing-ruby-production"] = {
-  "environment" => "production",
-  "adapter"     => "postgresql",
-  "host"        => "localhost",
-  "username"    => "postgres",
-  "password"    => "practicingruby",
-}
+# PostgreSQL database to create
+default["practicingruby"]["database"]["name"]      = "practicing-ruby-production"
+default["practicingruby"]["database"]["host"]      = "localhost"
+default["practicingruby"]["database"]["username"]  = "postgres"
+default["practicingruby"]["database"]["password"]  = "practicingruby"
+default["practicingruby"]["database"]["rails_env"] = "production"
 
 # Deployment user for Capistrano
-
 default["practicingruby"]["deploy"]["username"]      = "deploy"
 default["practicingruby"]["deploy"]["ssh_keys"]      = []
 default["practicingruby"]["deploy"]["sudo_commands"] = ["/usr/local/bin/god"]

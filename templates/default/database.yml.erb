@@ -1,10 +1,6 @@
-<% node["practicingruby"]["database"].each do |name, info| %>
-<% next unless node["practicingruby"]["databases"][name] == true %>
-<%= info["environment"] %>:
-  adapter: <%= info["adapter"] %>
-  database: <%= name %>
-  username: <%= info["username"] %>
-  password: <%= info["password"] %>
-  host: <%= info["host"] %>
-
-<% end %>
+<%= @db["rails_env"] %>:
+  adapter: postgresql
+  database: <%= @db["name"] %>
+  username: <%= @db["username"] %>
+  password: <%= @db["password"] %>
+  host: <%= @db["host"] %>

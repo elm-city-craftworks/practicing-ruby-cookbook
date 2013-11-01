@@ -45,3 +45,21 @@ template File.join(shared_dir, "database.yml") do
     :db => node["practicingruby"]["database"]
   )
 end
+
+# Create Unicorn startup script
+template "/etc/init.d/unicorn" do
+  source "unicorn.sh.erb"
+  owner  "root"
+  group  "root"
+  mode   "0755"
+  action :create
+  variables(
+    :deploy_root => File.join(node["practicingruby"]["deploy"]["home_dir"], "current")
+  )
+end
+
+# Register Unicorn startup script
+service "unicorn" do
+  supports :restart => false, :status => false
+  action   [:enable]
+end

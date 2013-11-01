@@ -75,7 +75,7 @@ to match your setup).
 ```
 Host practicingruby.local
     HostName 10.11.12.13
-    User vagrant
+    User deploy
     UserKnownHostsFile /dev/null
     StrictHostKeyChecking no
     PasswordAuthentication no

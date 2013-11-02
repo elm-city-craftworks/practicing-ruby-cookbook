@@ -33,15 +33,12 @@ template "/etc/god/master.conf" do
 end
 
 # Install startup script
-template "/etc/init.d/god" do
-  source "god.sh.erb"
+cookbook_file "/etc/init.d/god" do
+  source "god.sh"
   owner  "root"
   group  "root"
   mode   "0755"
   action :create
-  variables(
-    :ruby_version => node["practicingruby"]["ruby"]["version"]
-  )
 end
 
 # Start god

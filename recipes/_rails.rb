@@ -41,4 +41,7 @@ template File.join(shared_dir, "database.yml") do
   group  node["practicingruby"]["deploy"]["username"]
   mode   "0644"
   action :create
+  variables(
+    :db => node["practicingruby"]["database"]
+  )
 end

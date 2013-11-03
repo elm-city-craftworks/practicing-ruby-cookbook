@@ -1,3 +1,14 @@
+1.0.4 (Nov 3 2013)
+------------------
+
+* Improve documentation a lot. (Thanks, Greg!)
+* Add Unicorn upstart script to make sure that Unicorn is started at boot.
+* Remove production and development recipes as we only need one default recipe.
+* Only create production database.
+* Convert God init script from template to file.
+* Add `Berksfile.lock` to version control.
+* Set `site` in `Berksfile`.
+
 1.0.3 (Oct 31 2013)
 -------------------
 

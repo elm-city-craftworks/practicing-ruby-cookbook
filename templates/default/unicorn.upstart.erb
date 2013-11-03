@@ -1,0 +1,33 @@
+# vi: set ft=upstart :
+
+description "Unicorn is a HTTP server for Rack applications"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+setuid <%= @deploy_user %>
+setgid <%= @deploy_user %>
+
+env DEPLOY_DIR=<%= @deploy_dir %>
+
+pre-start script
+    if [ ! -d "$DEPLOY_DIR" ]; then
+        echo "Deploy directory not found!"
+        stop; exit 0
+    fi
+
+    echo "Starting Unicorn..."
+    chdir "$DEPLOY_DIR"
+    exec bundle exec unicorn -c config/unicorn.rb -E production -D
+end script
+
+post-stop script
+    PID_FILE="$DEPLOY_DIR/tmp/pids/unicorn.pid"
+
+    if [ -e "$PID_FILE" ] && kill -0 `cat "$PID_FILE"` >/dev/null 2>&1; then
+        echo "Stopping Unicorn..."
+        exec kill -s QUIT `cat "$PID_FILE"`
+    else
+        echo "Unicorn is not running."
+    fi
+end script

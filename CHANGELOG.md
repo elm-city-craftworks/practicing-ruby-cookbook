@@ -1,3 +1,8 @@
+1.0.5 (Nov 8 2013)
+------------------
+
+* Convert God init script into upstart script.
+
 1.0.4 (Nov 3 2013)
 ------------------
 

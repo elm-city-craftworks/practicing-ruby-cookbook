@@ -12,7 +12,6 @@ include_recipe "ruby_build"
 # /usr/local, we ensure it is the new global Ruby version from now on.
 ruby_build_ruby node["practicingruby"]["ruby"]["version"] do
   prefix_path "/usr/local"
-  action      :install
 end
 
 # Update to the latest RubyGems version

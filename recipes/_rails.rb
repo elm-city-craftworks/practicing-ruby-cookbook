@@ -15,7 +15,7 @@ package "python-pygments"
 include_recipe "practicingruby::_deploy_user"
 
 # Create shared directory that will be used by Capistrano
-shared_dir = File.join(node["practicingruby"]["deploy"]["home_dir"], "shared")
+shared_dir = ::File.join(node["practicingruby"]["deploy"]["home_dir"], "shared")
 directory shared_dir do
   owner  node["practicingruby"]["deploy"]["username"]
   group  node["practicingruby"]["deploy"]["username"]
@@ -24,7 +24,7 @@ directory shared_dir do
 end
 
 # Create environment configuration
-template File.join(shared_dir, ".env") do
+template ::File.join(shared_dir, ".env") do
   source "env.sh.erb"
   owner  node["practicingruby"]["deploy"]["username"]
   group  node["practicingruby"]["deploy"]["username"]
@@ -36,7 +36,7 @@ template File.join(shared_dir, ".env") do
 end
 
 # Create database configuration
-template File.join(shared_dir, "database.yml") do
+template ::File.join(shared_dir, "database.yml") do
   owner  node["practicingruby"]["deploy"]["username"]
   group  node["practicingruby"]["deploy"]["username"]
   mode   "0644"

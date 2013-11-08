@@ -14,7 +14,7 @@ node.set["nginx"]["default_site_enabled"] = false
 include_recipe "nginx::default"
 
 # Create directory to store SSL files
-ssl_dir = File.join(node["nginx"]["dir"], "ssl")
+ssl_dir = ::File.join(node["nginx"]["dir"], "ssl")
 directory ssl_dir do
   owner  "root"
   group  "root"
@@ -37,7 +37,7 @@ bash "generate-ssl-files" do
     rm $DOMAIN.csr
   EOS
   notifies :reload, "service[nginx]"
-  not_if { ::File.exists?(File.join(ssl_dir, domain_name + ".crt")) }
+  not_if { ::File.exists?(::File.join(ssl_dir, domain_name + ".crt")) }
 end
 
 # Create practicingruby site config

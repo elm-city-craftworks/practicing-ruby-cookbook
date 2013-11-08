@@ -13,7 +13,7 @@ template "/etc/init/unicorn.conf" do
   action :create
   variables(
     :deploy_user => node["practicingruby"]["deploy"]["username"],
-    :deploy_dir  => File.join(node["practicingruby"]["deploy"]["home_dir"], "current")
+    :deploy_dir  => ::File.join(node["practicingruby"]["deploy"]["home_dir"], "current")
   )
 end
 

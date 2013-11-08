@@ -19,7 +19,6 @@ directory ssl_dir do
   owner  "root"
   group  "root"
   mode   "0600"
-  action :create
 end
 
 # Generate SSL private key and use it to issue self-signed certificate for
@@ -46,10 +45,7 @@ template "#{node["nginx"]["dir"]}/sites-available/practicingruby" do
   owner  "root"
   group  "root"
   mode   "0644"
-  action :create
-  variables(
-    :domain_name => domain_name
-  )
+  variables(:domain_name => domain_name)
 end
 
 # Enable practicingruby site

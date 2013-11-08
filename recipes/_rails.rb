@@ -20,7 +20,6 @@ directory shared_dir do
   owner  node["practicingruby"]["deploy"]["username"]
   group  node["practicingruby"]["deploy"]["username"]
   mode   "2775"
-  action :create
 end
 
 # Create environment configuration
@@ -29,10 +28,7 @@ template File.join(shared_dir, ".env") do
   owner  node["practicingruby"]["deploy"]["username"]
   group  node["practicingruby"]["deploy"]["username"]
   mode   "0644"
-  action :create
-  variables(
-    :rails => node["practicingruby"]["rails"]
-  )
+  variables(:rails => node["practicingruby"]["rails"])
 end
 
 # Create database configuration
@@ -40,8 +36,5 @@ template File.join(shared_dir, "database.yml") do
   owner  node["practicingruby"]["deploy"]["username"]
   group  node["practicingruby"]["deploy"]["username"]
   mode   "0644"
-  action :create
-  variables(
-    :db => node["practicingruby"]["database"]
-  )
+  variables(:db => node["practicingruby"]["database"])
 end

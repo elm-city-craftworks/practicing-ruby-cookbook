@@ -1,0 +1,9 @@
+# vi: set ft=upstart :
+
+description "God is a monitoring framework written in Ruby"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+pre-start exec god -c /etc/god/master.conf
+post-stop exec god terminate

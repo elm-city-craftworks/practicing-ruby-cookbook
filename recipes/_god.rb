@@ -33,16 +33,17 @@ template "/etc/god/master.conf" do
 end
 
 # Install startup script
-cookbook_file "/etc/init.d/god" do
-  source "god.sh"
+cookbook_file "/etc/init/god.conf" do
+  source "god.upstart"
   owner  "root"
   group  "root"
-  mode   "0755"
+  mode   "0644"
   action :create
 end
 
 # Start god
 service "god" do
+  provider Chef::Provider::Service::Upstart
   supports :status => true, :restart => true
   action   [:enable, :start]
 end

@@ -15,9 +15,9 @@ ruby_build_ruby node["practicingruby"]["ruby"]["version"] do
 end
 
 # Update to the latest RubyGems version
-execute "update-rubygems" do
-  command "gem update --system"
-  not_if  "gem list | grep -q rubygems-update"
+bash "update-rubygems" do
+  code   "gem update --system"
+  not_if "gem list | grep -q rubygems-update"
 end
 
 # Install Bundler

@@ -10,7 +10,6 @@ template "/etc/init/unicorn.conf" do
   owner  "root"
   group  "root"
   mode   "0644"
-  action :create
   variables(
     :deploy_user => node["practicingruby"]["deploy"]["username"],
     :deploy_dir  => ::File.join(node["practicingruby"]["deploy"]["home_dir"], "current")
@@ -22,5 +21,5 @@ end
 service "unicorn" do
   provider Chef::Provider::Service::Upstart
   supports :status => true, :restart => true
-  action   [:enable]
+  action   :enable
 end

@@ -13,10 +13,9 @@ gem_package "god"
 
 # Create config directory
 directory "/etc/god" do
-  owner  "root"
-  group  "root"
-  mode   "0755"
-  action :create
+  owner "root"
+  group "root"
+  mode  "0755"
 end
 
 # Create config file
@@ -25,7 +24,6 @@ template "/etc/god/master.conf" do
   owner    "root"
   group    "root"
   mode     "0644"
-  action   :create
   notifies :restart, "service[god]"
   variables(
     :god_file => "#{node["practicingruby"]["deploy"]["home_dir"]}/current/config/delayed_job.god"
@@ -38,7 +36,6 @@ cookbook_file "/etc/init/god.conf" do
   owner  "root"
   group  "root"
   mode   "0644"
-  action :create
 end
 
 # Start god

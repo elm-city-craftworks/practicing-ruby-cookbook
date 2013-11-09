@@ -21,5 +21,4 @@ postgresql_database db["name"] do
     :username => db["username"],
     :password => db["password"],
   )
-  action     :create
 end

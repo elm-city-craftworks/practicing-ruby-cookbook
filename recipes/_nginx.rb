@@ -16,10 +16,9 @@ include_recipe "nginx::default"
 # Create directory to store SSL files
 ssl_dir = ::File.join(node["nginx"]["dir"], "ssl")
 directory ssl_dir do
-  owner  "root"
-  group  "root"
-  mode   "0600"
-  action :create
+  owner "root"
+  group "root"
+  mode  "0600"
 end
 
 # Generate SSL private key and use it to issue self-signed certificate for
@@ -37,7 +36,7 @@ bash "generate-ssl-files" do
     rm $DOMAIN.csr
   EOS
   notifies :reload, "service[nginx]"
-  not_if { ::File.exists?(::File.join(ssl_dir, domain_name + ".crt")) }
+  not_if   { ::File.exists?(::File.join(ssl_dir, domain_name + ".crt")) }
 end
 
 # Create practicingruby site config
@@ -46,10 +45,7 @@ template "#{node["nginx"]["dir"]}/sites-available/practicingruby" do
   owner  "root"
   group  "root"
   mode   "0644"
-  action :create
-  variables(
-    :domain_name => domain_name
-  )
+  variables(:domain_name => domain_name)
 end
 
 # Enable practicingruby site

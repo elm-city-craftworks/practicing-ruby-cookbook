@@ -13,9 +13,9 @@ gem_package "god"
 
 # Create config directory
 directory "/etc/god" do
-  owner  "root"
-  group  "root"
-  mode   "0755"
+  owner "root"
+  group "root"
+  mode  "0755"
 end
 
 # Create config file

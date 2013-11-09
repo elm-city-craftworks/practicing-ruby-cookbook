@@ -17,9 +17,9 @@ include_recipe "practicingruby::_deploy_user"
 # Create shared directory that will be used by Capistrano
 shared_dir = ::File.join(node["practicingruby"]["deploy"]["home_dir"], "shared")
 directory shared_dir do
-  owner  node["practicingruby"]["deploy"]["username"]
-  group  node["practicingruby"]["deploy"]["username"]
-  mode   "2775"
+  owner node["practicingruby"]["deploy"]["username"]
+  group node["practicingruby"]["deploy"]["username"]
+  mode  "2775"
 end
 
 # Create environment configuration
@@ -33,8 +33,8 @@ end
 
 # Create database configuration
 template ::File.join(shared_dir, "database.yml") do
-  owner  node["practicingruby"]["deploy"]["username"]
-  group  node["practicingruby"]["deploy"]["username"]
-  mode   "0644"
+  owner node["practicingruby"]["deploy"]["username"]
+  group node["practicingruby"]["deploy"]["username"]
+  mode  "0644"
   variables(:db => node["practicingruby"]["database"])
 end

@@ -21,5 +21,5 @@ end
 service "unicorn" do
   provider Chef::Provider::Service::Upstart
   supports :status => true, :restart => true
-  action :enable
+  action   :enable
 end

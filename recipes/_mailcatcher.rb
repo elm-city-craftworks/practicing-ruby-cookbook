@@ -8,10 +8,5 @@
 # Install Ruby first
 include_recipe "practicingruby::_ruby"
 
-# Install MailCatcher
+# Install and start MailCatcher
 include_recipe "mailcatcher::default"
-
-# Start MailCatcher as mailcatcher::default doesn't do it by default
-service "mailcatcher" do
-  action :start
-end

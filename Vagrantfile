@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--cpus", 1]
   end
 
-  # Install Chef via platform-specific Omnibus package
+  # Install Chef using vagrant-omnibus plugin
   config.omnibus.chef_version = "11.6.2"
 
   # Configure Chef Solo provisioner

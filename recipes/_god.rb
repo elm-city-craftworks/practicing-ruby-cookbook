@@ -18,16 +18,16 @@ directory "/etc/god" do
   mode  "0755"
 end
 
-# Create config file
-template "/etc/god/master.conf" do
-  source   "god.conf.erb"
+file "/etc/god/master.conf" do
   owner    "root"
   group    "root"
   mode     "0644"
   notifies :restart, "service[god]"
-  variables(
-    :god_file => "#{node["practicingruby"]["deploy"]["home_dir"]}/current/config/delayed_job.god"
-  )
+
+  home     = node["practicingruby"]["deploy"]["home_dir"] 
+  god_file = "#{home}/current/config/delayed_job.god"
+
+  content "God.load('#{god_file}') if File.file?('#{god_file}')"
 end
 
 # Install startup script

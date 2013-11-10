@@ -1,3 +1,12 @@
+1.0.6 (Nov 10 2013)
+-------------------
+
+* Remove action attributes wherever the default action will suffice.
+* Use `bash` resource throughout for consistency.
+* Always refer to Ruby's File class via `::File`.
+* Remove `Berksfile.lock` from version control as a bug in Berkshelf 2.x makes
+  this file pretty much useless.
+
 1.0.5 (Nov 8 2013)
 ------------------
 

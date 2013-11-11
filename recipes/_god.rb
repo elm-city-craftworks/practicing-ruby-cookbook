@@ -24,7 +24,7 @@ file "/etc/god/master.conf" do
   mode     "0644"
   notifies :restart, "service[god]"
 
-  home     = node["practicingruby"]["deploy"]["home_dir"] 
+  home     = node["practicingruby"]["deploy"]["home_dir"]
   god_file = "#{home}/current/config/delayed_job.god"
 
   content "God.load('#{god_file}') if File.file?('#{god_file}')"

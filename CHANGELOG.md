@@ -1,3 +1,10 @@
+1.0.8 (Nov 12 2013)
+-------------------
+
+* Remove `supports` attribute from god service resource, because it is identical
+  to defaults.
+* Remove `user` attribute from bash resource because it's implicit.
+
 1.0.7 (Nov 11 2013)
 -------------------
 

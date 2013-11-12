@@ -25,7 +25,6 @@ end
 # currently configured domain name
 domain_name = node["practicingruby"]["rails"]["host"]
 bash "generate-ssl-files" do
-  user  "root"
   cwd   ssl_dir
   flags "-e"
   code <<-EOS

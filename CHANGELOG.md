@@ -1,3 +1,10 @@
+1.0.7 (Nov 11 2013)
+-------------------
+
+* Update to mailcatcher cookbook v0.2.0 which starts the service by default.
+* Inline god configuration.
+* Tweak comments in `Vagrantfile`.
+
 1.0.6 (Nov 10 2013)
 -------------------
 

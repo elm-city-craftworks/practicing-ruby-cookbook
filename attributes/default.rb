@@ -35,8 +35,6 @@ default["practicingruby"]["rails"]["mailchimp"]["sender_name"]  = "Your Sender N
 default["practicingruby"]["rails"]["mailchimp"]["testers"]      = ["your@email.com"]
 default["practicingruby"]["rails"]["mailchimp"]["webhook_key"]  = "Your/webhook/key"
 
-default["practicingruby"]["rails"]["mixpanel"]["api_token"]     = "..."
-
 default["practicingruby"]["rails"]["stripe"]["publishable_key"] = "PUBLISHABLE"
 default["practicingruby"]["rails"]["stripe"]["secret_key"]      = "SECRET"
 default["practicingruby"]["rails"]["stripe"]["webhook_path"]    = "/oh/yeah/stripe/webhooks"

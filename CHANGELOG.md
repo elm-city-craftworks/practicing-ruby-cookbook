@@ -1,3 +1,10 @@
+1.0.9 (Dec 17 2013)
+-------------------
+
+* Remove obsolete Mixpanel API token.
+* Let Vagrant check that vagrant-omnibus is installed.
+* Update gem dependencies.
+
 1.0.8 (Nov 12 2013)
 -------------------
 

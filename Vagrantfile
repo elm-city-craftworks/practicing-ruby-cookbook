@@ -22,9 +22,6 @@ Vagrant.configure("2") do |config|
   # Install Chef using vagrant-omnibus plugin
   config.omnibus.chef_version = "11.6.2"
 
-  # Enable package caching if vagrant-cachier is installed
-  config.cache.auto_detect = true if Vagrant.has_plugin? "vagrant-cachier"
-
   # Configure Chef Solo provisioner
   config.vm.provision :chef_solo do |chef|
     # Tell Vagrant where the cookbooks are located

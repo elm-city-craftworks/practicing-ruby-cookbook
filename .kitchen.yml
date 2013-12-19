@@ -18,6 +18,10 @@ suites:
     run_list:
       - recipe[practicingruby::default]
     attributes:
+      practicingruby:
+        deploy:
+          ssh_keys:
+            - some-deploy-key
       postgresql:
         password:
           postgres: practicingruby

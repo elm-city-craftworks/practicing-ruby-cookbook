@@ -2,7 +2,7 @@ language: ruby
 
 rvm: 2.0.0
 
-install: bundle install
+install: bundle install --without=integration
 
 script: bundle exec rake test
 

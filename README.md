@@ -103,6 +103,18 @@ entries to your `/etc/hosts` file:
 A few users and some articles will already be populated in the DB. Try logging in as `admin` for an admistrator
 account, and see the [full seed file][pr-seeds] for all created users.
 
+## Testing
+
+[![Build Status](https://travis-ci.org/elm-city-craftworks/practicing-ruby-cookbook.png?branch=master)](https://travis-ci.org/elm-city-craftworks/practicing-ruby-cookbook)
+
+The following Rake tasks are provided for automated testing of the cookbook:
+
+* `rake lint` - Run [Foodcritic] lint checks
+* `rake integration` - Run [Test Kitchen] integration tests (provisions a
+  Vagrant VM using this cookbook and then tests the infrastructure with
+  [Serverspec])
+* `rake test` - Run both lint checks and integration tests
+
 ## License and Authorship
 
 Originally written in October 2013 by Mathias Lafeldt (<mathias.lafeldt@gmail.com>),
@@ -140,3 +152,6 @@ We welcome contributed improvements and bug fixes via the usual workflow:
 [practicingruby-web]: https://github.com/elm-city-craftworks/practicing-ruby-web
 [vagrant-omnibus]: https://github.com/schisamo/vagrant-omnibus
 [pr-seeds]: https://github.com/elm-city-craftworks/practicing-ruby-web/blob/master/db/seeds.rb
+[Foodcritic]: http://www.foodcritic.io/
+[Serverspec]: http://serverspec.org/
+[Test Kitchen]: http://kitchen.ci/

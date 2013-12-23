@@ -49,7 +49,7 @@ cases, you may not need to override any settings at all.*
 ## Provisioning
 
 Run the following two commands inside the Practicing Ruby cookbook to create a
-vagrant box and boot it up:
+Vagrant box and boot it up:
 
     $ bundle exec berks install --path vendor/cookbooks
     $ vagrant up --provision
@@ -103,7 +103,7 @@ following entries to your `/etc/hosts` file:
 ```
 
 A few users and some articles will already be populated in the DB. Try logging
-in as `admin` for an admistrator account, and see the [full seed file][pr-seeds]
+in as `admin` for an administrator account, and see the [full seed file][pr-seeds]
 for all created users.
 
 ## Testing
@@ -123,7 +123,7 @@ The following Rake tasks are provided for automated testing of the cookbook:
 Originally written in October 2013 by Mathias Lafeldt (<mathias.lafeldt@gmail.com>),
 with contributions from the community. Individual contributors retain their
 copyright, but agree to release the code under the same license as the project
-itself. For a complete list of contributor, see the git logs or visit:
+itself. For a complete list of contributors, see the git logs or visit:
 https://github.com/elm-city-craftworks/practicing-ruby-cookbook/graphs/contributors
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use

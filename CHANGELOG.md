@@ -1,3 +1,12 @@
+1.1.0 (Dec 23 2013)
+-------------------
+
+* Add Test Kitchen integration tests.
+* Add Foodcritic lint checks.
+* Add Rake tasks to run tests.
+* Add Travis CI config.
+* Install Ruby 2.0.0-p353.
+
 1.0.9 (Dec 17 2013)
 -------------------
 

@@ -2,10 +2,8 @@ Practicing Ruby Cookbook
 ========================
 
 This Chef cookbook fully automates the process of setting up an environment that
-can run the [Practicing Ruby Rails app][practicingruby-web]. It takes a bare
-Ubuntu system from zero to the point where Practicing Ruby can be deployed with
-Capistrano.
-
+can run the [Practicing Ruby Rails app][pr-web]. It takes a bare Ubuntu system
+from zero to the point where Practicing Ruby can be deployed with Capistrano.
 
 ## Requirements
 
@@ -149,11 +147,11 @@ We welcome contributed improvements and bug fixes via the usual workflow:
 
 
 [Berkshelf]: http://berkshelf.com/
-[Vagrant]: http://vagrantup.com
-[VirtualBox]: https://www.virtualbox.org/
-[practicingruby-web]: https://github.com/elm-city-craftworks/practicing-ruby-web
-[vagrant-omnibus]: https://github.com/schisamo/vagrant-omnibus
-[pr-seeds]: https://github.com/elm-city-craftworks/practicing-ruby-web/blob/master/db/seeds.rb
 [Foodcritic]: http://www.foodcritic.io/
+[pr-seeds]: https://github.com/elm-city-craftworks/practicing-ruby-web/blob/master/db/seeds.rb
+[pr-web]: https://github.com/elm-city-craftworks/practicing-ruby-web
 [Serverspec]: http://serverspec.org/
 [Test Kitchen]: http://kitchen.ci/
+[vagrant-omnibus]: https://github.com/schisamo/vagrant-omnibus
+[Vagrant]: http://vagrantup.com
+[VirtualBox]: https://www.virtualbox.org/

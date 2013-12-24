@@ -18,6 +18,7 @@ directory "/etc/god" do
   mode  "0755"
 end
 
+# Create god config file
 file "/etc/god/master.conf" do
   owner    "root"
   group    "root"
@@ -27,7 +28,7 @@ file "/etc/god/master.conf" do
   home     = node["practicingruby"]["deploy"]["home_dir"]
   god_file = "#{home}/current/config/delayed_job.god"
 
-  content "God.load('#{god_file}') if File.file?('#{god_file}')"
+  content "God.load('#{god_file}') if File.file?('#{god_file}')\n"
 end
 
 # Install startup script

@@ -18,7 +18,7 @@ ssl_dir = ::File.join(node["nginx"]["dir"], "ssl")
 directory ssl_dir do
   owner "root"
   group "root"
-  mode  "0600"
+  mode  "0755"
 end
 
 # Generate SSL private key and use it to issue self-signed certificate for
@@ -30,6 +30,7 @@ bash "generate-ssl-files" do
   code <<-EOS
     DOMAIN=#{domain_name}
     openssl genrsa -out $DOMAIN.key 4096
+    chmod 600 $DOMAIN.key
     openssl req -new -batch -subj "/CN=$DOMAIN" -key $DOMAIN.key -out $DOMAIN.csr
     openssl x509 -req -days 365 -in $DOMAIN.csr -signkey $DOMAIN.key -out $DOMAIN.crt
     rm $DOMAIN.csr

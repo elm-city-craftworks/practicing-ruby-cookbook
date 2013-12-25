@@ -26,14 +26,14 @@ describe "practicingruby::_nginx" do
     it "creates directory to store SSL files" do
       expect(file ssl_dir).to be_directory
       expect(file ssl_dir).to be_owned_by "root"
-      expect(file ssl_dir).to be_mode 600
+      expect(file ssl_dir).to be_mode 755
     end
 
     it "generates RSA private key" do
       key_file = file "#{ssl_dir}/#{domain_name}.key"
       expect(key_file).to be_file
       expect(key_file).to be_owned_by "root"
-      expect(key_file).to be_mode 644 # FIXME
+      expect(key_file).to be_mode 600
       expect(key_file).to contain /BEGIN RSA PRIVATE KEY/
     end
 

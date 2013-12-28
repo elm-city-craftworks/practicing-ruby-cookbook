@@ -11,6 +11,13 @@ package "nodejs"
 # Install Pygments for syntax highlighting
 package "python-pygments"
 
+# Install Nokogiri dependencies
+package "libxml2-dev"
+package "libxslt1-dev"
+
+# Install Git
+include_recipe "git::default"
+
 # Create deploy user first
 include_recipe "practicingruby::_deploy_user"
 

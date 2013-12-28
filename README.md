@@ -25,6 +25,7 @@ Our recipes are built on top of the following external cookbooks:
 
 * [apt](https://github.com/opscode-cookbooks/apt)
 * [database](https://github.com/opscode-cookbooks/database)
+* [git](https://github.com/opscode-cookbooks/git)
 * [mailcatcher](https://github.com/andruby/mailcatcher)
 * [nginx](https://github.com/opscode-cookbooks/nginx)
 * [postgresql](https://github.com/opscode-cookbooks/postgresql)

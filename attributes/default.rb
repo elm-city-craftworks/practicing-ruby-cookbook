@@ -4,7 +4,7 @@
 #
 
 # Ruby version to install
-default["practicingruby"]["ruby"]["version"] = "2.0.0-p353"
+default["practicingruby"]["ruby"]["version"] = "2.0"
 
 # PostgreSQL database to create
 default["practicingruby"]["database"]["name"]      = "practicing-ruby-production"

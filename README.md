@@ -46,7 +46,7 @@ cases, you may not need to override any settings at all.*
 ## Provisioning
 
 Run the following two commands inside the Practicing Ruby cookbook to create a
-Vagrant box and boot it up:
+Vagrant machine and boot it up:
 
     $ bundle exec berks install --path vendor/cookbooks
     $ vagrant up --provision
@@ -64,6 +64,16 @@ Last but not least, here is how to stop and destroy the VM when you no longer
 need it or when you want to start from scratch:
 
     $ vagrant destroy -f
+
+### Using Rake
+
+Instead of running Vagrant directly on the command line, there are also a couple
+of Rake tasks you can use for provisioning etc.
+
+* `rake vagrant:create` - Create the Vagrant machine
+* `rake vagrant:provision` - Provision the Vagrant machine with Chef
+* `rake vagrant:login` - Log into the Vagrant machine via SSH
+* `rake vagrant:destroy` - Stop and delete the Vagrant machine
 
 ## Deploying
 

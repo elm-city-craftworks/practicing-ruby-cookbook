@@ -27,5 +27,13 @@ bash "switch-ruby" do
   not_if "ruby-switch --check | grep -q ruby#{ruby_version}"
 end
 
+# Configure RubyGems to not install gem docs
+file "/etc/gemrc" do
+  owner   "root"
+  group   "root"
+  mode    "0644"
+  content "gem: --no-document\n"
+end
+
 # Install Bundler
 gem_package "bundler"

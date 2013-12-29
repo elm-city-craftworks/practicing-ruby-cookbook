@@ -1,3 +1,9 @@
+## 1.1.1 (Dec 29 2013)
+
+* Add newline to god config file.
+* Tweak SSL file permissions.
+* Minor documentation improvements.
+
 ## 1.1.0 (Dec 23 2013)
 
 * Add Test Kitchen integration tests.

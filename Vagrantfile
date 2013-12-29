@@ -31,7 +31,8 @@ Vagrant.configure("2") do |config|
     json_file = File.exist?("chef.json") ? "chef.json" : "chef.json.example"
     chef.json = JSON.parse(IO.read(json_file))
 
-    # Set Chef log level
+    # Configure Chef output
+    chef.formatter = ENV.fetch("CHEF_FORMAT", "null").downcase.to_sym
     chef.log_level = ENV.fetch("CHEF_LOG", "info").downcase.to_sym
   end
 end

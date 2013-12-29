@@ -11,6 +11,15 @@ describe "practicingruby::_rails" do
     expect(package "nodejs").to be_installed
   end
 
+  it "installs Nokogiri dependencies" do
+    expect(package "libxml2-dev").to be_installed
+    expect(package "libxslt1-dev").to be_installed
+  end
+
+  it "installs Git" do
+    expect(command "git --version").to return_exit_status 0
+  end
+
   it "creates shared directory for Rails app" do
     expect(file shared_dir).to be_directory
     expect(file shared_dir).to be_owned_by "deploy"

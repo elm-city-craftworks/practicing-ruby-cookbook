@@ -28,7 +28,6 @@ Our recipes are built on top of the following external cookbooks:
 * [mailcatcher](https://github.com/andruby/mailcatcher)
 * [nginx](https://github.com/opscode-cookbooks/nginx)
 * [postgresql](https://github.com/opscode-cookbooks/postgresql)
-* [ruby_build](https://github.com/fnichol/chef-ruby_build)
 * [sudo](https://github.com/opscode-cookbooks/sudo)
 * [user](https://github.com/fnichol/chef-user)
 

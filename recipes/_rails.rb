@@ -5,11 +5,18 @@
 # Prepares configuration of Rails app for Capistrano
 #
 
+# Install Git
+package "git"
+
 # Install JavaScript runtime for Rails app
 package "nodejs"
 
 # Install Pygments for syntax highlighting
 package "python-pygments"
+
+# Install Nokogiri dependencies
+package "libxml2-dev"
+package "libxslt1-dev"
 
 # Create deploy user first
 include_recipe "practicingruby::_deploy_user"

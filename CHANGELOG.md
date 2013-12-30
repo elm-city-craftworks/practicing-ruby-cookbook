@@ -1,3 +1,13 @@
+## 1.1.2 (Dec 30 2013)
+
+* Install Ruby 2.0 using Ubuntu PPA packages. Compared to compiling Ruby from
+  source with ruby-build, this change speeds up provisioning of the Vagrant
+  machine by an order of magnitude.
+* Configure RubyGems to not install gem documentation. This speeds up
+  installation of gems, especially when running Capistrano.
+* Allow to configure Chef output format via environment variable
+  [CHEF_FORMAT](http://mlafeldt.github.io/blog/2013/10/debugging-chef-runs-with-chef-log/).
+
 ## 1.1.1 (Dec 29 2013)
 
 * Add newline to god config file.

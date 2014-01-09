@@ -1,3 +1,10 @@
+## 1.1.3 (Jan 9 2014)
+
+* Add Vagrant Rake tasks. Now `rake vagrant:provision` is all you need to get a
+  running and up-to-date Vagrant machine.
+* Allow to use environment variable [VAGRANT_NO_PLUGINS](http://docs.vagrantup.com/v2/other/environmental-variables.html)
+  to disable all Vagrant plugins.
+
 ## 1.1.2 (Dec 30 2013)
 
 * Install Ruby 2.0 using Ubuntu PPA packages. Compared to compiling Ruby from

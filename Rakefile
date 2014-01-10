@@ -52,3 +52,6 @@ namespace :vagrant do
     vagrant "destroy", "--force"
   end
 end
+
+desc "Alias for vagrant:provision"
+task :vagrant => 'vagrant:provision'

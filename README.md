@@ -68,12 +68,14 @@ need it or when you want to start from scratch:
 ### Using Rake
 
 Instead of running Vagrant directly on the command line, there are also a couple
-of Rake tasks you can use for provisioning etc.
+of Rake tasks you can use. For example, with this one, you always end up with a
+Vagrant machine that is fully provisioned:
 
-* `rake vagrant:create` - Create the Vagrant machine
-* `rake vagrant:provision` - Provision the Vagrant machine with Chef
-* `rake vagrant:login` - Log into the Vagrant machine via SSH
-* `rake vagrant:destroy` - Stop and delete the Vagrant machine
+    $ bundle exec rake vagrant
+
+This will give you a list of all tasks related to Vagrant:
+
+    $ bundle exec rake -T vagrant
 
 ## Deploying
 

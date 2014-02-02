@@ -19,6 +19,6 @@ postgresql_database db["name"] do
     :host     => db["host"],
     :port     => node["postgresql"]["config"]["port"],
     :username => db["username"],
-    :password => db["password"],
+    :password => db["password"]
   )
 end

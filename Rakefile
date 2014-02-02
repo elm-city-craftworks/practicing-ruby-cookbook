@@ -1,12 +1,16 @@
 require "foodcritic"
+require "rubocop/rake_task"
+
+desc "Run RuboCop style and lint checks"
+Rubocop::RakeTask.new(:rubocop)
 
 desc "Run Foodcritic lint checks"
-FoodCritic::Rake::LintTask.new(:lint) do |t|
+FoodCritic::Rake::LintTask.new(:foodcritic) do |t|
   t.options = { :fail_tags => ["any"] }
 end
 
 desc "Run all tests"
-task :test => [:lint]
+task :test => [:rubocop, :foodcritic]
 task :default => :test
 
 begin
@@ -28,8 +32,8 @@ namespace :vagrant do
 
   task :berkshelf do
     require "berkshelf"
-    Berkshelf::Berksfile.from_file("Berksfile").
-      install(:path => "vendor/cookbooks")
+    Berkshelf::Berksfile.from_file("Berksfile")
+      .install(:path => "vendor/cookbooks")
   end
 
   desc "Create the Vagrant machine"

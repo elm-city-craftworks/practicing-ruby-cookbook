@@ -121,11 +121,12 @@ for all created users.
 
 The following Rake tasks are provided for automated testing of the cookbook:
 
-* `rake lint` - Run [Foodcritic] lint checks
+* `rake rubocop` - Run [RuboCop] style and lint checks
+* `rake foodcritic` - Run [Foodcritic] lint checks
 * `rake integration` - Run [Test Kitchen] integration tests (provisions a
   Vagrant VM using this cookbook and then tests the infrastructure with
   [Serverspec])
-* `rake test` - Run both lint checks and integration tests
+* `rake test` - Run all tests
 
 ## License and Authorship
 
@@ -161,6 +162,7 @@ We welcome contributed improvements and bug fixes via the usual workflow:
 [Foodcritic]: http://www.foodcritic.io/
 [pr-seeds]: https://github.com/elm-city-craftworks/practicing-ruby-web/blob/master/db/seeds.rb
 [pr-web]: https://github.com/elm-city-craftworks/practicing-ruby-web
+[RuboCop]: https://github.com/bbatsov/rubocop
 [Serverspec]: http://serverspec.org/
 [Test Kitchen]: http://kitchen.ci/
 [vagrant-omnibus]: https://github.com/schisamo/vagrant-omnibus

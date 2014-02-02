@@ -1,12 +1,16 @@
 require "foodcritic"
+require "rubocop/rake_task"
+
+desc "Run RuboCop style and lint checks"
+Rubocop::RakeTask.new(:rubocop)
 
 desc "Run Foodcritic lint checks"
-FoodCritic::Rake::LintTask.new(:lint) do |t|
+FoodCritic::Rake::LintTask.new(:foodcritic) do |t|
   t.options = { :fail_tags => ["any"] }
 end
 
 desc "Run all tests"
-task :test => [:lint]
+task :test => [:rubocop, :foodcritic]
 task :default => :test
 
 begin

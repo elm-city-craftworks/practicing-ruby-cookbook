@@ -1,3 +1,9 @@
+## 1.1.4 (Feb 2 2014)
+
+* Add RuboCop style and lint checks.
+* Add `rake vagrant` as alias for `rake vagrant:provision`.
+* Update gems.
+
 ## 1.1.3 (Jan 9 2014)
 
 * Add Vagrant Rake tasks. Now `rake vagrant:provision` is all you need to get a

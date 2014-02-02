@@ -32,8 +32,8 @@ namespace :vagrant do
 
   task :berkshelf do
     require "berkshelf"
-    Berkshelf::Berksfile.from_file("Berksfile").
-      install(:path => "vendor/cookbooks")
+    Berkshelf::Berksfile.from_file("Berksfile")
+      .install(:path => "vendor/cookbooks")
   end
 
   desc "Create the Vagrant machine"

@@ -5,7 +5,6 @@ AllCops:
     - Rakefile
     - Vagrantfile
   Excludes:
-    - test/**
     - vendor/**
 
 AlignParameters:

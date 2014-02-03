@@ -10,7 +10,7 @@ describe "practicingruby::_mailcatcher" do
   end
 
   it "starts mailcatcher service" do
-    expect(command "status mailcatcher").to return_stdout /^mailcatcher start\/running/
+    expect(command "status mailcatcher").to return_stdout(/^mailcatcher start\/running/)
   end
 
   it "starts mailcatcher SMTP server" do

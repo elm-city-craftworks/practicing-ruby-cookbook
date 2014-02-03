@@ -8,11 +8,11 @@ describe "practicingruby::_ruby" do
   end
 
   it "uses correct version of Ruby" do
-    expect(command "ruby --version").to return_stdout /^ruby #{ruby_version}/
+    expect(command "ruby --version").to return_stdout(/^ruby #{ruby_version}/)
   end
 
   it "configures RubyGems to not install gem docs" do
-    expect(file "/etc/gemrc").to contain /^gem: --no-document$/
+    expect(file "/etc/gemrc").to contain(/^gem: --no-document$/)
   end
 
   it "installs Bundler" do

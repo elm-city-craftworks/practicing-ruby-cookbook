@@ -11,8 +11,8 @@ describe "practicingruby::_nginx" do
   it "configures Nginx" do
     config_file = file "#{nginx_dir}/nginx.conf"
     expect(config_file).to be_file
-    expect(config_file).to contain /^[ \t]*worker_processes[ \t]*4;$/
-    expect(config_file).to contain /^[ \t]*worker_connections[ \t]*768;$/
+    expect(config_file).to contain(/^[ \t]*worker_processes[ \t]*4;$/)
+    expect(config_file).to contain(/^[ \t]*worker_connections[ \t]*768;$/)
   end
 
   it "starts Nginx server" do
@@ -34,7 +34,7 @@ describe "practicingruby::_nginx" do
       expect(key_file).to be_file
       expect(key_file).to be_owned_by "root"
       expect(key_file).to be_mode 600
-      expect(key_file).to contain /BEGIN RSA PRIVATE KEY/
+      expect(key_file).to contain(/BEGIN RSA PRIVATE KEY/)
     end
 
     it "issues certificate for domain name" do
@@ -42,7 +42,7 @@ describe "practicingruby::_nginx" do
       expect(crt_file).to be_file
       expect(crt_file).to be_owned_by "root"
       expect(crt_file).to be_mode 644
-      expect(crt_file).to contain /BEGIN CERTIFICATE/
+      expect(crt_file).to contain(/BEGIN CERTIFICATE/)
     end
 
     it "deletes certificate signing request" do
@@ -56,9 +56,9 @@ describe "practicingruby::_nginx" do
 
     it "creates practicingruby site config" do
       expect(file site_file).to be_file
-      expect(file site_file).to contain /^[ \t]*server_name #{domain_name} www.#{domain_name};$/
-      expect(file site_file).to contain /^[ \t]*ssl_certificate[ \t]*ssl\/#{domain_name}.crt;$/
-      expect(file site_file).to contain /^[ \t]*ssl_certificate_key[ \t]*ssl\/#{domain_name}.key;$/
+      expect(file site_file).to contain(/^[ \t]*server_name #{domain_name} www.#{domain_name};$/)
+      expect(file site_file).to contain(/^[ \t]*ssl_certificate[ \t]*ssl\/#{domain_name}.crt;$/)
+      expect(file site_file).to contain(/^[ \t]*ssl_certificate_key[ \t]*ssl\/#{domain_name}.key;$/)
     end
 
     it "enables practicingruby site" do

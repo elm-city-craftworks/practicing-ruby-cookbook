@@ -7,8 +7,8 @@ describe "practicingruby::_unicorn" do
 
     deploy_user = "deploy"
     deploy_dir = "/home/#{deploy_user}/current"
-    expect(startup_file).to contain /^setuid #{deploy_user}$/
-    expect(startup_file).to contain /^env DEPLOY_DIR=#{deploy_dir}$/
+    expect(startup_file).to contain(/^setuid #{deploy_user}$/)
+    expect(startup_file).to contain(/^env DEPLOY_DIR=#{deploy_dir}$/)
   end
 
   it "enables unicorn service" do

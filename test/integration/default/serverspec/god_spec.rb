@@ -23,6 +23,6 @@ describe "practicingruby::_god" do
   end
 
   it "starts god service" do
-    expect(command "status god").to return_stdout /^god start\/running$/
+    expect(command "status god").to return_stdout(/^god start\/running$/)
   end
 end

@@ -20,6 +20,6 @@ describe "practicingruby::_postgresql" do
 
   it "creates database for Rails app" do
     db_name = "practicing-ruby-production"
-    expect(command "sudo -u postgres psql -l").to return_stdout /#{db_name}/
+    expect(command "sudo -u postgres psql -l").to return_stdout(/#{db_name}/)
   end
 end

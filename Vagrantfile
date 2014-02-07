@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
 
   unless ENV["VAGRANT_NO_PLUGINS"]
     # Install Chef using vagrant-omnibus plugin
-    config.omnibus.chef_version = "11.6.2"
+    config.omnibus.chef_version = "11.10.0"
   end
 
   # Configure Chef Solo provisioner

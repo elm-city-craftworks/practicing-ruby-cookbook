@@ -1,3 +1,8 @@
+## 1.1.5 (Feb 7 2014)
+
+* Fix RuboCop `AmbiguousRegexpLiteral` offenses for test/ directory.
+* Update to Chef version 11.10.0.
+
 ## 1.1.4 (Feb 2 2014)
 
 * Add RuboCop style and lint checks.

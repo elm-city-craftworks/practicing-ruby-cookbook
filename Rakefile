@@ -58,4 +58,4 @@ namespace :vagrant do
 end
 
 desc "Alias for vagrant:provision"
-task :vagrant => 'vagrant:provision'
+task :vagrant => "vagrant:provision"

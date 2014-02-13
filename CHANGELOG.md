@@ -1,3 +1,9 @@
+## 1.1.6 (Feb 13 2014)
+
+* Only install PostgreSQL server if database is local.
+* Update gems (berkshelf and test-kitchen).
+* Consistent quoting in Rakefile.
+
 ## 1.1.5 (Feb 7 2014)
 
 * Fix RuboCop `AmbiguousRegexpLiteral` offenses for test/ directory.

@@ -5,6 +5,9 @@ This Chef cookbook fully automates the process of setting up an environment that
 can run the [Practicing Ruby Rails app][pr-web]. It takes a bare Ubuntu system
 from zero to the point where Practicing Ruby can be deployed with Capistrano.
 
+The cookbook was originally built for the Practicing Ruby article
+["Infrastructure automation by example"][pr-article].
+
 ## Requirements
 
 To use this cookbook, you need the following software:
@@ -160,6 +163,7 @@ We welcome contributed improvements and bug fixes via the usual workflow:
 
 [Berkshelf]: http://berkshelf.com/
 [Foodcritic]: http://www.foodcritic.io/
+[pr-article]: http://tinyurl.com/pr-chef
 [pr-seeds]: https://github.com/elm-city-craftworks/practicing-ruby-web/blob/master/db/seeds.rb
 [pr-web]: https://github.com/elm-city-craftworks/practicing-ruby-web
 [RuboCop]: https://github.com/bbatsov/rubocop

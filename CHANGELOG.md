@@ -1,3 +1,8 @@
+## 1.1.7 (Feb 21 2014)
+
+* Link to Practicing Ruby article in README.
+* Update to Chef version 11.10.4.
+
 ## 1.1.6 (Feb 13 2014)
 
 * Only install PostgreSQL server if database is local.

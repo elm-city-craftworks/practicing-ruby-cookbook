@@ -8,7 +8,7 @@ describe "practicingruby::_rails" do
   end
 
   it "installs Pygments for syntax highlighting" do
-    expect(package "nodejs").to be_installed
+    expect(package "python-pygments").to be_installed
   end
 
   it "installs Nokogiri dependencies" do

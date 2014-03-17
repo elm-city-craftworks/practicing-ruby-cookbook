@@ -1,7 +1,5 @@
 # vi: set ft=ruby :
 
-Vagrant.require_plugin "vagrant-omnibus"
-
 Vagrant.configure("2") do |config|
   # VM will be based on Ubuntu 12.04 (64 bit)
   config.vm.box      = "ubuntu-12.04"

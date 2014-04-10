@@ -11,7 +11,7 @@ supports "ubuntu", ">= 12.04"
 
 depends "apt"
 depends "database"
-depends "mailcatcher", ">= 0.2.0"
+depends "mailcatcher"
 depends "nginx"
 depends "postgresql"
 depends "sudo"

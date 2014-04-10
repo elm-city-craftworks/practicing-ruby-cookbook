@@ -12,4 +12,4 @@ site :opscode
 metadata
 
 # Get mailcatcher cookbook from GitHub
-cookbook "mailcatcher", :github => "andruby/mailcatcher"
+cookbook "mailcatcher", :github => "andruby/mailcatcher", :ref => "v0.3.0"

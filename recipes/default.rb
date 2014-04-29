@@ -5,10 +5,8 @@
 # Sets up production-like environment for Practicing Ruby Rails app
 #
 
-# Update Debian package index
-include_recipe "apt::default"
-
 # Include all the pieces
+include_recipe "practicingruby::_apt"
 include_recipe "practicingruby::_deploy_user"
 include_recipe "practicingruby::_ruby"
 include_recipe "practicingruby::_postgresql"

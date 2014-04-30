@@ -1,11 +1,11 @@
 AllCops:
-  Includes:
+  Include:
     - Berksfile
     - Gemfile
     - Rakefile
     - Vagrantfile
-  Excludes:
-    - vendor/**
+  Exclude:
+    - vendor/**/*
 
 AlignParameters:
   Enabled: false
@@ -17,5 +17,7 @@ LineLength:
   Enabled: false
 MethodLength:
   Max: 30
+SingleSpaceBeforeFirstArg:
+  Enabled: false
 StringLiterals:
   Enabled: false

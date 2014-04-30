@@ -12,5 +12,5 @@ include_recipe "apt::default"
 stamp_file = "/var/lib/apt/periodic/update-success-stamp"
 execute "apt-get update" do
   action :nothing
-end.run_action(:run) unless ::File.exists?(stamp_file) &&
+end.run_action(:run) unless ::File.exist?(stamp_file) &&
                             ::File.mtime(stamp_file) < Time.now - 86_400

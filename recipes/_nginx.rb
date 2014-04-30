@@ -36,7 +36,7 @@ bash "generate-ssl-files" do
     rm $DOMAIN.csr
   EOS
   notifies :reload, "service[nginx]"
-  not_if   { ::File.exists?(::File.join(ssl_dir, domain_name + ".crt")) }
+  not_if   { ::File.exist?(::File.join(ssl_dir, domain_name + ".crt")) }
 end
 
 # Create practicingruby site config

@@ -1,3 +1,16 @@
+## 1.2.0 (Apr 30 2014)
+
+* Ensure that the Debian package index is updated when using the latest Ubuntu
+  12.04 Vagrant box from Canonical. Thanks to @cheeyeo for reporting.
+* Fix integration test to actually check if Pygments gets installed. Thanks to
+  @juanje.
+* Update to Chef version 11.12.2.
+* Update gems, incl. berkshelf, rubocop, and test-kitchen.
+* Pin mailcatcher cookbook to latest version to prevent further issues.
+* Remove deprecated `Vagrant.require_plugin` from Vagrantfile.
+* Add test/ folder to chefignore.
+* Add dedicated apt recipe.
+
 ## 1.1.7 (Feb 21 2014)
 
 * Link to Practicing Ruby article in README.

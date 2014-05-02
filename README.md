@@ -120,7 +120,7 @@ for all created users.
 
 ## Testing
 
-[![Build Status](https://travis-ci.org/elm-city-craftworks/practicing-ruby-cookbook.png?branch=master)](https://travis-ci.org/elm-city-craftworks/practicing-ruby-cookbook)
+[![Build Status](https://travis-ci.org/elm-city-craftworks/practicing-ruby-cookbook.svg?branch=master)](https://travis-ci.org/elm-city-craftworks/practicing-ruby-cookbook)
 
 The following Rake tasks are provided for automated testing of the cookbook:
 

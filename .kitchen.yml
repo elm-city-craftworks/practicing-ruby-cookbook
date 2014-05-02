@@ -7,11 +7,13 @@ provisioner:
   require_chef_omnibus: 11.12.8
 
 platforms:
-  - name: ubuntu-12.04
+  - name: trusty64
     driver:
+      box: ubuntu/trusty64
+      box_url: https://vagrantcloud.com/ubuntu/trusty64/version/1/provider/virtualbox.box
       customize:
-        memory: 768
-        cpus: 1
+        memory: 2048
+        cpus: 2
 
 suites:
   - name: default

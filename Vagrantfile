@@ -16,8 +16,8 @@ Vagrant.configure("2") do |config|
 
   # Mirror specs of production system
   config.vm.provider "virtualbox" do |v|
-    v.customize ["modifyvm", :id, "--memory", 768]
-    v.customize ["modifyvm", :id, "--cpus", 1]
+    v.customize ["modifyvm", :id, "--memory", 2048]
+    v.customize ["modifyvm", :id, "--cpus", 2]
   end
 
   unless ENV["VAGRANT_NO_PLUGINS"]

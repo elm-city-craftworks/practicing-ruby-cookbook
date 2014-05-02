@@ -13,7 +13,7 @@ The cookbook was originally built for the Practicing Ruby article
 To use this cookbook, you need the following software:
 
 * [VirtualBox] - Version 4.2 or higher
-* [Vagrant] - Version 1.3.4 or higher
+* [Vagrant] - Version 1.5 or higher
 * [vagrant-omnibus] - installable via `vagrant plugin install vagrant-omnibus`
 * [Berkshelf] - installable via `bundle install`
 

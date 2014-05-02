@@ -5,9 +5,8 @@ def abspath(f)
 end
 
 Vagrant.configure("2") do |config|
-  # VM will be based on Ubuntu 12.04 (64 bit)
-  config.vm.box      = "ubuntu-12.04"
-  config.vm.box_url  = "http://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-amd64-vagrant-disk1.box"
+  # VM will be based on Ubuntu 14.04 LTS (64 bit)
+  config.vm.box = "ubuntu/trusty64"
 
   # Set a nice hostname
   config.vm.hostname = "practicingruby"

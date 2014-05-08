@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "practicingruby::_ruby" do
-  let(:ruby_version) { "2.0" }
+  let(:ruby_version) { "2.1" }
 
   it "installs correct version of Ruby" do
     expect(package "ruby#{ruby_version}").to be_installed

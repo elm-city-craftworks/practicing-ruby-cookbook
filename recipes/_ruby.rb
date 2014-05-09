@@ -19,13 +19,6 @@ end
 ruby_version = node["practicingruby"]["ruby"]["version"]
 package "ruby#{ruby_version}"
 package "ruby#{ruby_version}-dev"
-package "ruby-switch"
-
-# Switch to using new Ruby version from now on
-bash "switch-ruby" do
-  code   "ruby-switch --set ruby#{ruby_version}"
-  not_if "ruby-switch --check | grep -q ruby#{ruby_version}"
-end
 
 # Configure RubyGems to not install gem docs
 file "/etc/gemrc" do

@@ -1,3 +1,12 @@
+## 1.3.0 (May 9 2014)
+
+* Update to Ruby version 2.1.
+* Remove `ruby-switch` as it is no longer required and isn't available in Ubuntu
+  14.04 LTS anyway.
+* Actually run `apt-get update` if required. Fixes the 1.2.0 fix.
+* Show build status as SVG in README.
+* Tweak PostgreSQL integration test.
+
 ## 1.2.0 (Apr 30 2014)
 
 * Ensure that the Debian package index is updated when using the latest Ubuntu

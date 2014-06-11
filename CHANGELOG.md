@@ -1,3 +1,8 @@
+## 1.3.1 (June 11 2014)
+
+* Update to Chef version 11.12.8.
+* Update gems, incl. berkshelf and rubocop.
+
 ## 1.3.0 (May 9 2014)
 
 * Update to Ruby version 2.1.

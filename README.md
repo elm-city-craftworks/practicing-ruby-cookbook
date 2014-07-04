@@ -114,6 +114,14 @@ A few users and some articles will already be populated in the DB. Try logging
 in as `admin` for an administrator account, and see the [full seed file][pr-seeds]
 for all created users.
 
+### Using Rake
+
+Instead of manually switching to the `practicing-ruby-web` directory and running
+Capistrano, you can also use this handy Rake task to deploy the Rails app to the
+Vagrant machine:
+
+    $ bundle exec rake deploy
+
 ## Testing
 
 [![Build Status](https://travis-ci.org/elm-city-craftworks/practicing-ruby-cookbook.svg?branch=master)](https://travis-ci.org/elm-city-craftworks/practicing-ruby-cookbook)

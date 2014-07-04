@@ -34,3 +34,13 @@ task :provision do
   sh "vagrant", "up", "--no-provision"
   sh "vagrant", "provision"
 end
+
+desc "Deploy Rails app to Vagrant machine"
+task :deploy do
+  Bundler.with_clean_env do
+    cd "../practicing-ruby-web" do
+      sh "bundle", "install", "--quiet"
+      sh "bundle", "exec", "cap", "vagrant", "deploy:setup", "deploy", "seed"
+    end
+  end
+end

@@ -70,15 +70,11 @@ need it or when you want to start from scratch:
 
 ### Using Rake
 
-Instead of running Vagrant directly on the command line, there are also a couple
-of Rake tasks you can use. For example, with this one, you always end up with a
-Vagrant machine that is fully provisioned:
+Instead of running Vagrant directly on the command line, there is also a Rake
+task you can use. With this command, you always end up with a Vagrant machine
+that is fully provisioned:
 
-    $ bundle exec rake vagrant
-
-This will give you a list of all tasks related to Vagrant:
-
-    $ bundle exec rake -T vagrant
+    $ bundle exec rake provision
 
 ## Deploying
 

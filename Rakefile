@@ -27,37 +27,10 @@ rescue LoadError
   puts ">>>>> Kitchen gem not loaded, omitting tasks" unless ENV['CI']
 end
 
-namespace :vagrant do
-  def vagrant(*args)
-    sh "vagrant", *args
-  end
-
-  task :berkshelf do
-    require "berkshelf"
-    Berkshelf::Berksfile.from_file("Berksfile")
-      .install(:path => "vendor/cookbooks")
-  end
-
-  desc "Create the Vagrant machine"
-  task :create do
-    vagrant "up", "--no-provision"
-  end
-
-  desc "Provision the Vagrant machine with Chef"
-  task :provision => [:berkshelf, :create] do
-    vagrant "provision"
-  end
-
-  desc "Log into the Vagrant machine via SSH"
-  task :login do
-    vagrant "ssh"
-  end
-
-  desc "Stop and delete the Vagrant machine"
-  task :destroy do
-    vagrant "destroy", "--force"
-  end
+desc "Provision Vagrant machine with Chef"
+task :provision do
+  require "berkshelf"
+  Berkshelf::Berksfile.from_file("Berksfile").install(:path => "vendor/cookbooks")
+  sh "vagrant", "up", "--no-provision"
+  sh "vagrant", "provision"
 end
-
-desc "Alias for vagrant:provision"
-task :vagrant => "vagrant:provision"

@@ -1,5 +1,9 @@
 # vi: set ft=ruby :
 
+def abspath(f)
+  File.expand_path("../#{f}", __FILE__)
+end
+
 Vagrant.configure("2") do |config|
   # VM will be based on Ubuntu 12.04 (64 bit)
   config.vm.box      = "ubuntu-12.04"
@@ -28,7 +32,11 @@ Vagrant.configure("2") do |config|
     chef.cookbooks_path = "vendor/cookbooks"
 
     # Load node attributes and run list from a JSON file
-    json_file = File.exist?("chef.json") ? "chef.json" : "chef.json.example"
+    json_file = if File.exist?(abspath("chef.json"))
+                  abspath("chef.json")
+                else
+                  abspath("chef.json.example")
+                end
     chef.json = JSON.parse(IO.read(json_file))
 
     # Configure Chef output

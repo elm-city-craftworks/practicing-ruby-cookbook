@@ -6,7 +6,7 @@
 # of gems.
 #
 
-site :opscode
+source "https://supermarket.getchef.com"
 
 # Tell Berkshelf to read cookbook dependencies from metadata.rb
 metadata

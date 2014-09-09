@@ -7,7 +7,6 @@
 # Berkshelf
 /.kitchen/
 /vendor/cookbooks/
-Berksfile.lock
 
 # Vagrant
 /.vagrant/

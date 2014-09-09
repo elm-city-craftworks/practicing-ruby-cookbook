@@ -30,7 +30,8 @@ end
 desc "Provision Vagrant machine with Chef"
 task :provision do
   require "berkshelf"
-  Berkshelf::Berksfile.from_file("Berksfile").install(:path => "vendor/cookbooks")
+  rm_rf "vendor/cookbooks"
+  Berkshelf::Berksfile.from_file("Berksfile").vendor("vendor/cookbooks")
   sh "vagrant", "up", "--no-provision"
   sh "vagrant", "provision"
 end

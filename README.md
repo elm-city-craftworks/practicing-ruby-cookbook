@@ -51,12 +51,12 @@ cases, you may not need to override any settings at all.*
 Run the following two commands inside the Practicing Ruby cookbook to create a
 Vagrant machine and boot it up:
 
-    $ bundle exec berks install --path vendor/cookbooks
+    $ bundle exec berks vendor vendor/cookbooks
     $ vagrant up --provision
 
 In case the VM is already up, you can always run Chef again with:
 
-    $ bundle exec berks install --path vendor/cookbooks
+    $ bundle exec berks vendor vendor/cookbooks
     $ vagrant provision
 
 To SSH into the running VM:

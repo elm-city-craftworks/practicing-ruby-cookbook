@@ -167,7 +167,7 @@ We welcome contributed improvements and bug fixes via the usual workflow:
 
 [Berkshelf]: http://berkshelf.com/
 [Foodcritic]: http://www.foodcritic.io/
-[pr-article]: http://tinyurl.com/pr-chef
+[pr-article]: https://practicingruby.com/articles/infrastructure-automation
 [pr-seeds]: https://github.com/elm-city-craftworks/practicing-ruby-web/blob/master/db/seeds.rb
 [pr-web]: https://github.com/elm-city-craftworks/practicing-ruby-web
 [RuboCop]: https://github.com/bbatsov/rubocop

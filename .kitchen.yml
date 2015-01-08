@@ -4,13 +4,13 @@ driver:
 
 provisioner:
   name: chef_solo
-  require_chef_omnibus: 11.12.8
+  require_chef_omnibus: 11.16.4
 
 platforms:
-  - name: trusty64
+  - name: ubuntu-14.04
     driver:
       box: ubuntu/trusty64
-      box_url: https://vagrantcloud.com/ubuntu/trusty64/version/1/provider/virtualbox.box
+      box_url: https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/14.04/providers/virtualbox.box
       customize:
         memory: 2048
         cpus: 2

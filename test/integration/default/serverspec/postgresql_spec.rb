@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "practicingruby::_postgresql" do
-  let(:postgresql_version) { "9.1" }
+  let(:postgresql_version) { "9.3" }
   let(:postgresql_port) { 5432 }
 
   it "installs PostgreSQL server" do
@@ -13,7 +13,7 @@ describe "practicingruby::_postgresql" do
   end
 
   it "starts PostgreSQL server" do
-    output = "Running clusters: #{postgresql_version}/main"
+    output = "#{postgresql_version}/main (port #{postgresql_port}): online"
     expect(command "service postgresql status").to return_stdout output
     expect(port postgresql_port).to be_listening
   end
